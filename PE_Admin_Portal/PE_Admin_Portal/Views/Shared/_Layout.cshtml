@@ -2,40 +2,114 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">             
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css")    
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/shared_libraries")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+        <div class="conjtainer">
+            <!-- Menu button for smallar screens -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span>Menu</span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <!-- Site name for smallar screens -->
+                <a href="/Home/Dashboard" class="navbar-brand hidden-lg">Property Administration</a>
             </div>
-            <div class="navbar-collapse collapse">
+
+
+
+            <!-- Navigation starts -->
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+
+                    <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
+                    <li class="dropdown dropdown-big">
+                        <a href="/Home/Dashboard"><span>
+                            <i class="fa fa-home fa-2x"></i></span> 
+                            <span style="font-family:times, Times New Roman, times-roman, georgia, serif;font-size:24px;font-weight:bold;color:#0993d3">PROPERTY ADMINISTRATION PORTAL</span>
+                        </a>                                                
+                    </li>                    
                 </ul>
-            </div>
+                <!-- Links -->
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown pull-right">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-user"></i> Admin <b class="caret"></b>
+                        </a>
+
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i>Change Password</a></li>                            
+                            <li><a href="login.html"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <div style="height:25px">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </div>
+    <!-- Header ends -->
+    <div class="content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+
+            <!--- Sidebar navigation -->
+            <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+            <ul id="nav">
+                <!-- Main menu with font awesome icon -->
+                <li>
+                    <a href="/Home/Dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>                   
+                </li>
+                <li class="has_sub">
+                    <a href="#"><i class="fa fa-folder"></i> Manage Property  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+                    <ul>
+                        <li><a href="~/Property/UploadProperty"><i class="fa fa-upload"></i> Upload New Property</a></li>
+                        <li><a href="~/Property/ViewProperty"><i class="fa fa-th"></i> View Properties</a></li>                        
+                    </ul>
+                </li>              
+                <li><a href="~/Password/ChangePassword"><i class="fa fa-pencil-square-o"></i> Change Password</a></li>  
+                <li>
+                    @Html.ActionLink("API", "Index", "Help", new { area = "" }, null)
+                </li>                
+            </ul>
+        </div>
+        <!-- Sidebar ends -->
+        <!-- Main bar -->
+        <div class="mainbar">            
+            @RenderBody()                                         
+        <!-- Mainbar ends -->
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Content ends -->
+    <!-- Footer starts -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Copyright info -->
+                    <p class="copy">Copyright &copy; @DateTime.Now.Year | <a href="#">FlexiApps Solutions</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer ends -->
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
+        @RenderSection("scripts", required: false)
+       
 </body>
 </html>

@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "UploadProperty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-head">
+    <h2 class="pull-left"><i class="fa fa-folder"></i> Manage Property</h2>
+
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="#"><i class="fa fa-folder"></i> Manage Property</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="/Property/UploadProperty" class="bread-current"> Upload New Property</a>
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+<div class="matter">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <div class="widget wgreen">
+
+                    <div class="widget-head">
+                        <div class="pull-left">Upload New Property</div>
+                       
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="widget-content">
+                        <div class="padd">
+                            <br />
+                            <!-- Form starts.  -->
+                            <form class="form-horizontal" role="form">
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Title</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" placeholder="Title of Property e.g. New 5 bedrooms in Lekki" id="property_title">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Property Type</label>
+                                    <div class="col-lg-5">
+                                        <select class="form-control" id="property_type">
+                                            <option>Select Property Type</option>
+                                            <option>House</option>
+                                            <option>Flat</option>
+                                            <option>Land</option>
+                                            <option>Commercial</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Number of Bedrooms</label>
+                                    <div class="col-lg-5">
+                                        <select class="form-control" id="property_number_of_bedrooms">
+                                            <option>Select Number of Bedrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5+</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Location</label>
+                                    <div class="col-lg-5">
+                                        <select class="form-control" id="property_location">
+                                            <option>Select Location</option>
+                                            <option>Abia</option>
+                                            <option>Adamawa</option>
+                                            <option>Anambra</option>
+                                            <option>Akwa Ibom</option>
+                                            <option>Bauchi</option>
+                                            <option>Bayelsa</option>
+                                            <option>Benue</option>
+                                            <option>Borno</option>
+                                            <option>Cross River</option>
+                                            <option>Delta</option>
+                                            <option>Ebonyi</option>
+                                            <option>Enugu</option>
+                                            <option>Edo</option>
+                                            <option>Ekiti</option>
+                                            <option>Gombe</option>
+                                            <option>Imo</option>
+                                            <option>Jigawa</option>
+                                            <option>Kaduna</option>
+                                            <option>Kano</option>
+                                            <option>Katsina</option>
+                                            <option>Kebbi</option>
+                                            <option>Kogi</option>
+                                            <option>Kwara</option>
+                                            <option>Lagos</option>
+                                            <option>Nasarawa</option>
+                                            <option>Niger</option>
+                                            <option>Ogun</option>
+                                            <option>Ondo</option>
+                                            <option>Osun</option>
+                                            <option>Oyo</option>
+                                            <option>Plateau</option>
+                                            <option>Rivers</option>
+                                            <option>Sokoto</option>
+                                            <option>Taraba</option>
+                                            <option>Yobe</option>
+                                            <option>Zamfara</option>
+                                            <option>Federal Capital Territory (FCT)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Price <img src="~/img/naira.png" alt="Naira image"/></label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" placeholder="Price of Property" id="property_price">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Property Decription</label>
+                                    <div class="col-lg-5">
+                                        <textarea class="form-control" rows="10" placeholder="Detailed Description of the Property" id="property_description"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-offset-1 col-md-10">
+                                    <div class="widget">
+                                        <!-- Widget title -->
+                                        <div class="widget-head">
+                                            <div class="pull-left">Property Images</div>
+                                            <div class="widget-icons pull-right">
+                                                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>                                                
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="widget-content">
+                                            <!-- Widget content -->
+                                            <div class="padd">
+                                                <div class="form-group">                                                    
+                                                    <label class="col-lg-2 control-label">Select Images </label>
+                                                    <div class="col-lg-5">
+                                                        <p style="color:red;font-family:Calibri;font-weight:bold;">Note: Maximum image size allowed per upload is 500KB</p>
+                                                        <input type="file" class="form-control" id="property_image_to_load">
+                                                        <button type="button" style="margin-top:10px" class="btn btn-outline btn-info" onclick="loadImageFileAsURL()">Upload Image</button>  
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" id="images">                                                    
+                                                    <div class="col-lg-12" id="potential_property_images" style="display:flex;flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-foot">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                                               
+
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-6">
+                                        <button type="button" class="btn btn-outline btn-primary" onclick="saveProperty()">Save Property</button>                                       
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="widget-foot">
+                        <!-- Footer goes here -->
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/property")    

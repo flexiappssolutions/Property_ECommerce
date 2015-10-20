@@ -16,13 +16,48 @@ namespace PE_Admin_Portal
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/shared_libraries").Include(
+                      "~/Scripts/jquery.js",
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/jquery-ui.min.js",
+                      "~/Scripts/moment.min.js",
+                      "~/Scripts/fullcalendar.min.js",
+                      "~/Scripts/jquery.rateit.min.js",
+                      "~/Scripts/jquery.prettyPhoto.js",
+                      "~/Scripts/jquery.slimscroll.min.js",
+                      "~/Scripts/jquery.dataTables.min.js",
+                      "~/Scripts/excanvas.min.js",
+                      "~/Scripts/jquery.flot.js",
+                      "~/Scripts/jquery.flot.resize.js",
+                      "~/Scripts/jquery.flot.pie.js",
+                      "~/Scripts/jquery.flot.stack.js",
+                      "~/Scripts/jquery.noty.js",
+                      "~/Scripts/default.js",                      
+                      "~/Scripts/layouts/bottomRight.js",                     
+                      "~/Scripts/sparklines.js",
+                      "~/Scripts/jquery.cleditor.min.js",
+                      "~/Scripts/bootstrap-datetimepicker.min.js",
+                      "~/Scripts/jquery.onoff.min.js",
+                      "~/Scripts/filter.js",
+                      "~/Scripts/custom.js",
+                      "~/Scripts/_configurationFile.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/property").Include(
+                        "~/Scripts/Property/UploadProperty.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/jquery-ui.css",
+                      "~/Content/fullcalendar.css",
+                      "~/Content/prettyPhoto.css",
+                      "~/Content/rateit.css",
+                      "~/Content/bootstrap-datetimepicker.min.css",
+                      "~/Content/jquery.cleditor.css",
+                      "~/Content/jquery.dataTables.css",
+                      "~/Content/jquery.onoff.css",
+                      "~/Content/style.css",
+                      "~/Content/widgets.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

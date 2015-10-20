@@ -14,5 +14,12 @@ namespace PE_Admin_Portal.Controllers
 
             return View();
         }
+
+        public ActionResult Dashboard()
+        {
+            ViewBag.Title = "Dashboard";
+
+            return View();
+        }
     }
 }
