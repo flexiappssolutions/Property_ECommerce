@@ -15,5 +15,6 @@ namespace PE_Admin_Portal
         public Nullable<decimal> Price { get; set; }
         public string Description { get; set; }        
         public virtual ICollection<string> PropertyImages { get; set; }
+        public virtual ICollection<string> DeletedPropertyImages { get; set; }
     }
 }

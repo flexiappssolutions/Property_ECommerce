@@ -123,6 +123,7 @@ function saveProperty() {
                 $("#updateBtn").removeAttr("disabled");
                 $("#potential_property_images").html('');
                 property_images = [];
+                names = [];
             },
             error: function (xhr) {
                 alert('error');

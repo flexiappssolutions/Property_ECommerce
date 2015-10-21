@@ -39,7 +39,11 @@ namespace PE_Admin_Library
                     ICollection<Object> propertyImages = new List<Object>();
                     foreach(PropertyImage propertyImage in propertyDetail.PropertyImages)
                     {
-                        string base64Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length);
+                        Object base64Image = new
+                        {
+                            Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length),
+                            ImageID = propertyImage.PropertyImageID
+                        };                       
                         propertyImages.Add(base64Image);
                     }
 
@@ -51,6 +55,7 @@ namespace PE_Admin_Library
                         NumberOfBedrooms = propertyDetail.NumberOfBedrooms,
                         Location = propertyDetail.Location,
                         Price = propertyDetail.Price,
+                        ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
                         Description = propertyDetail.Description,
                         PropertyImages = propertyImages,
                         DateUploaded = propertyDetail.DateUploaded,
@@ -61,6 +66,18 @@ namespace PE_Admin_Library
                 }
 
                 return returnedPropertyDetails;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool Update(PropertyDetail propertyDetails, List<long> imageIDToRemove, List<byte[]> newImages)
+        {
+            try
+            {
+                return PropertyDL.Update(propertyDetails, imageIDToRemove, newImages);
             }
             catch (Exception ex)
             {

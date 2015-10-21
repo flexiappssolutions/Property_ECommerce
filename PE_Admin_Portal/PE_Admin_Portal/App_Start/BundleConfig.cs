@@ -42,11 +42,13 @@ namespace PE_Admin_Portal
                       "~/Scripts/filter.js",
                       "~/Scripts/custom.js",
                       "~/Scripts/_configurationFile.js",
-                      "~/Scripts/customValidations.js"));
+                      "~/Scripts/_customValidations.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/property").Include(
-                        "~/Scripts/Property/UploadProperty.js",
-                        "~/Scripts/Property/ViewProperty.js"));
+            bundles.Add(new ScriptBundle("~/bundles/upload_property").Include(
+                        "~/Scripts/Property/UploadProperty.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/view_property").Include(                       
+                       "~/Scripts/Property/ViewProperty.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
