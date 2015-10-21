@@ -1,0 +1,9 @@
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\PE_Admin_Library.dll.config
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\PE_Admin_Library.dll
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\PE_Admin_Library.pdb
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.dll
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.xml
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\obj\Debug\PE_Admin_Library.dll
+C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\obj\Debug\PE_Admin_Library.pdb

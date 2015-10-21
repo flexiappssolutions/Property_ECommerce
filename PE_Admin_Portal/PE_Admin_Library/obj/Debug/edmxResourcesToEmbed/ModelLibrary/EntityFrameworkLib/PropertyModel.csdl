@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PropertyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PropertyDetail">
+    <Key>
+      <PropertyRef Name="PropertyID" />
+    </Key>
+    <Property Name="PropertyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfBedrooms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateUploaded" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PropertyImages" Relationship="PropertyDBModel.FK_PropertyImage_PropertyDetails" FromRole="PropertyDetail" ToRole="PropertyImage" />
+  </EntityType>
+  <EntityContainer Name="PropertyDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PropertyDetails" EntityType="Self.PropertyDetail" />
+    <EntitySet Name="PropertyImages" EntityType="PropertyDBModel.PropertyImage" />
+    <AssociationSet Name="FK_PropertyImage_PropertyDetails" Association="PropertyDBModel.FK_PropertyImage_PropertyDetails">
+      <End Role="PropertyDetail" EntitySet="PropertyDetails" />
+      <End Role="PropertyImage" EntitySet="PropertyImages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PropertyImage">
+    <Key>
+      <PropertyRef Name="PropertyImageID" />
+    </Key>
+    <Property Name="PropertyImageID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PropertyID" Type="Int64" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="PropertyDetail" Relationship="PropertyDBModel.FK_PropertyImage_PropertyDetails" FromRole="PropertyImage" ToRole="PropertyDetail" />
+  </EntityType>
+  <Association Name="FK_PropertyImage_PropertyDetails">
+    <End Type="PropertyDBModel.PropertyDetail" Role="PropertyDetail" Multiplicity="0..1" />
+    <End Type="PropertyDBModel.PropertyImage" Role="PropertyImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyDetail">
+        <PropertyRef Name="PropertyID" />
+      </Principal>
+      <Dependent Role="PropertyImage">
+        <PropertyRef Name="PropertyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

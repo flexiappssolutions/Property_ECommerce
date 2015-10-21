@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PropertyDBModelStoreContainer" CdmEntityContainer="PropertyDBEntities">
+    <EntitySetMapping Name="PropertyDetails">
+      <EntityTypeMapping TypeName="PropertyDBModel.PropertyDetail">
+        <MappingFragment StoreEntitySet="PropertyDetails">
+          <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NumberOfBedrooms" ColumnName="NumberOfBedrooms" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyImages">
+      <EntityTypeMapping TypeName="PropertyDBModel.PropertyImage">
+        <MappingFragment StoreEntitySet="PropertyImage">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
+          <ScalarProperty Name="PropertyImageID" ColumnName="PropertyImageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

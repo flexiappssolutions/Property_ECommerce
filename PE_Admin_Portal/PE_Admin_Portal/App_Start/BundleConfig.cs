@@ -25,7 +25,8 @@ namespace PE_Admin_Portal
                       "~/Scripts/jquery.rateit.min.js",
                       "~/Scripts/jquery.prettyPhoto.js",
                       "~/Scripts/jquery.slimscroll.min.js",
-                      "~/Scripts/jquery.dataTables.min.js",
+                      "~/Scripts/jquery.dataTables.min.js",                       
+                      "~/Scripts/dataTables.tableTools.js",
                       "~/Scripts/excanvas.min.js",
                       "~/Scripts/jquery.flot.js",
                       "~/Scripts/jquery.flot.resize.js",
@@ -43,7 +44,8 @@ namespace PE_Admin_Portal
                       "~/Scripts/_configurationFile.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/property").Include(
-                        "~/Scripts/Property/UploadProperty.js"));
+                        "~/Scripts/Property/UploadProperty.js",
+                        "~/Scripts/Property/ViewProperty.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
@@ -53,8 +55,10 @@ namespace PE_Admin_Portal
                       "~/Content/prettyPhoto.css",
                       "~/Content/rateit.css",
                       "~/Content/bootstrap-datetimepicker.min.css",
-                      "~/Content/jquery.cleditor.css",
-                      "~/Content/jquery.dataTables.css",
+                      "~/Content/jquery.cleditor.css",                      
+                       "~/Content/jquery.dataTables.min.css",
+                      "~/Content/dataTables.bootstrap.min.css",
+                      "~/Content/dataTables.tableTools.css",
                       "~/Content/jquery.onoff.css",
                       "~/Content/style.css",
                       "~/Content/widgets.css"));

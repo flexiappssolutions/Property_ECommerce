@@ -11,11 +11,15 @@ namespace PE_Admin_Portal.Controllers
         // GET: Property
         public ActionResult UploadProperty()
         {
+            ViewBag.Title = "Upload Property";
+
             return View();
         }
 
         public ActionResult ViewProperty()
         {
+            ViewBag.Title = "View Property";
+
             return View();
         }
     }
