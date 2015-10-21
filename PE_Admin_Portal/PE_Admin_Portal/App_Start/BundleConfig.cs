@@ -41,7 +41,8 @@ namespace PE_Admin_Portal
                       "~/Scripts/jquery.onoff.min.js",
                       "~/Scripts/filter.js",
                       "~/Scripts/custom.js",
-                      "~/Scripts/_configurationFile.js"));
+                      "~/Scripts/_configurationFile.js",
+                      "~/Scripts/customValidations.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/property").Include(
                         "~/Scripts/Property/UploadProperty.js",
