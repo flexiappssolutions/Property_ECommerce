@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="PropertyDBModel.PropertyDetail" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PropertyDBModel.PropertyImage" Width="1.5" PointX="3" PointY="1.625" />
         <AssociationConnector Association="PropertyDBModel.FK_PropertyImage_PropertyDetails" />
+        <EntityTypeShape EntityType="PropertyDBModel.MailTemplate" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="PropertyDBModel.User" Width="1.5" PointX="8.375" PointY="1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

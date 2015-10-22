@@ -26,7 +26,7 @@ namespace PE_Admin_Portal.Controllers
                 }
 
                 PropertyDetail propertyDetail = new PropertyDetail();
-                propertyDetail.Title = propertyModel.Title;
+                propertyDetail.Title = propertyModel.Title.ToUpper();
                 propertyDetail.Type = propertyModel.Type;
                 propertyDetail.NumberOfBedrooms = propertyModel.NumberOfBedrooms;
                 propertyDetail.Location = propertyModel.Location;
@@ -97,7 +97,7 @@ namespace PE_Admin_Portal.Controllers
 
                 PropertyDetail propertyDetail = new PropertyDetail();
                 propertyDetail.PropertyID = propertyModel.PropertyID;
-                propertyDetail.Title = propertyModel.Title;
+                propertyDetail.Title = propertyModel.Title.ToUpper();
                 propertyDetail.Type = propertyModel.Type;
                 propertyDetail.NumberOfBedrooms = propertyModel.NumberOfBedrooms;
                 propertyDetail.Location = propertyModel.Location;
@@ -106,6 +106,29 @@ namespace PE_Admin_Portal.Controllers
 
 
                 bool result = PropertyPL.Update(propertyDetail, imageIDsToRemove, newPropertyImages);
+                if (result)
+                    return Request.CreateResponse(HttpStatusCode.OK, "Successful");
+                else
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Failed");
+            }
+            catch (Exception ex)
+            {
+                var response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                return response;
+            }
+        }
+
+        [HttpPut]
+        public HttpResponseMessage UpdatePropertyAsSold([FromBody]PropertyModel propertyModel)
+        {
+            try
+            {
+                
+                PropertyDetail propertyDetail = new PropertyDetail();
+                propertyDetail.PropertyID = propertyModel.PropertyID;
+                propertyDetail.Status = StatusUtil.PropertyStatus.Sold.ToString();
+
+                bool result = PropertyPL.UpdatePropertyAsSold(propertyDetail);
                 if (result)
                     return Request.CreateResponse(HttpStatusCode.OK, "Successful");
                 else

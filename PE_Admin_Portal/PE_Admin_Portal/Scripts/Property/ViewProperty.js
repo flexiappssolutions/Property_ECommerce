@@ -14,6 +14,15 @@ $(document).ready(function () {
 
         "ajax": settingsManager.websiteURL + "api/PropertyAPI/RetrieveAll",
 
+        "columnDefs": [{
+            "targets": 2,
+            "createdCell": function (td, cellData, rowData, row, col) {
+                if (rowData.Status == "Sold") {
+                    $(td).attr('class', '');
+                }
+            }
+        }],
+
         "columns": [
              {
                  "className": 'details-control',
@@ -23,6 +32,12 @@ $(document).ready(function () {
              },
             {
                 "className": 'edit-control',
+                "orderable": false,
+                "data": null,
+                "defaultContent": ''
+            },
+            {
+                "className": 'sold-control',
                 "orderable": false,
                 "data": null,
                 "defaultContent": ''
@@ -106,6 +121,34 @@ $(document).ready(function () {
 
             row.child(editProperty(row.data())).show();
             tr.addClass('shown');
+        }
+    });
+
+    $('#properties tbody').on('click', 'td.sold-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+        var data = row.data();
+
+        var acknowledge = confirm("Are you sure you want to mark this property: " + data.Title + " as SOLD?")
+        if (acknowledge) {
+            var data = { PropertyID: data.PropertyID };
+            $.ajax({
+                url: settingsManager.websiteURL + "api/PropertyAPI/UpdatePropertyAsSold",
+                type: 'PUT',
+                data: data,
+                processData: true,
+                async: true,
+                cache: false,
+                success: function (data) {
+                    window.location.href = window.location.href;
+                    alert(data);
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        } else {
+            alert("Mark property as sold operation cancelled.");
         }
     });
 
@@ -201,7 +244,8 @@ function editProperty(d) {
 
     table += '<tr>';
     table += '<td style="color:navy;width:20%;font-family:Calibri;font-weight:bold;">Price <img src="../img/naira.png" alt="Naira image"/>:</td>';
-    table += '<td><input class="form-control" placeholder="Price of Property" id="property_price" value="' + d.Price + '"/></td>';
+    table += '<td><input class="form-control" placeholder="Price of Property" id="property_price" value="' + d.Price + '" onkeyup="displayPrice()"/>'
+    table +='<span id="price" style="color:blue;font-family:Calibri;font-size:14px;"></span></td>';
     table += '</tr>';
 
     table += '<tr>';
@@ -453,4 +497,34 @@ function customBranchValidation(name, address) {
         err = "The following fields " + missingFields + " are required.";
     }
     return err;
+}
+
+function displayPrice() {
+    var property_price = $('#property_price').val();
+    if (property_price.indexOf(",") <= -1) {
+        $('#price').html(addCommas(property_price));
+    } else {
+        $('#property_price').val(property_price.replace(/\,$/, ''));
+    }
+}
+
+function addCommas(str) {
+    var parts = (str + "").split("."),
+        main = parts[0],
+        len = main.length,
+        output = "",
+        i = len - 1;
+
+    while (i >= 0) {
+        output = main.charAt(i) + output;
+        if ((len - i) % 3 === 0 && i > 0) {
+            output = "," + output;
+        }
+        --i;
+    }
+    // put decimal part back
+    if (parts.length > 1) {
+        output += "." + parts[1];
+    }
+    return output;
 }

@@ -104,3 +104,64 @@ function validPrice(property_price) {
     }
     return err;
 }
+
+function customMailValidation(fromemailaddress, company, username, password, websiteurl, footer, subject, body) {
+    var err = "";
+    var validationErr = "";
+    var missingFields = "";
+    var errCount = 0;
+    if (company == "") {
+        missingFields += "Company";
+        errCount++;
+    }
+    if (username == "") {
+        missingFields += missingFields == "" ? "Username" : ", Username";
+        errCount++;
+    }
+    if (fromemailaddress == "") {
+        missingFields += missingFields == "" ? "From Email Address" : ", From Email Address";
+        errCount++;
+    }
+    if (password == "") {
+        missingFields += missingFields == "" ? "Password" : ", Password";
+        errCount++;
+    }
+    if (websiteurl == "") {
+        missingFields += missingFields == "" ? "Website Url" : ", Website Url";
+        errCount++;
+    }
+    if (footer == "") {
+        missingFields += missingFields == "" ? "Footer" : ", Footer";
+        errCount++;
+    }
+    if (subject == "") {
+        missingFields += missingFields == "" ? "Subject" : ", Subject";
+        errCount++;
+    }
+    if (body == "") {
+        missingFields += missingFields == "" ? "Body" : ", Body";
+        errCount++;
+    }
+    if (!validEmail(fromemailaddress) && fromemailaddress != "") {
+        validationErr += "valid email";
+    }
+
+
+    if (missingFields != "" && errCount == 1) {
+        err = "The field " + missingFields + " is required. ";
+    } else if (missingFields != "" && errCount > 1) {
+        err = "The following fields " + missingFields + " are required. ";
+    }
+
+    if (validationErr != "" && err == "") {
+        err = "Enter a " + validationErr;
+    } else if (validationErr != "" && err != "") {
+        err += "Also enter a " + validationErr;
+    }
+    return err;
+}
+
+function validEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}

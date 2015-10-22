@@ -41,13 +41,13 @@
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown pull-right">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="fa fa-user"></i> Admin <b class="caret"></b>
+                            <i class="fa fa-user" id="user"></i>  <b class="caret"></b>
                         </a>
 
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i>Change Password</a></li>                            
-                            <li><a href="login.html"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            <li><a href="~/Password/ChangePassword"><i class="fa fa-user"></i>Change Password</a></li>                            
+                            <li><a style="cursor:pointer;" onclick="logout();"><i class=" fa fa-sign-out"></i> Logout</a></li>
                         </ul>
                     </li>
 
@@ -79,6 +79,7 @@
                         <li><a href="~/Property/ViewProperty"><i class="fa fa-th"></i> View Properties</a></li>                        
                     </ul>
                 </li>              
+                <li><a href="~/MailTemplate/MailTemplate"><i class="fa fa-book"></i> E-Mail Template</a></li>  
                 <li><a href="~/Password/ChangePassword"><i class="fa fa-pencil-square-o"></i> Change Password</a></li>  
                 <li>
                     @Html.ActionLink("API", "Index", "Help", new { area = "" }, null)

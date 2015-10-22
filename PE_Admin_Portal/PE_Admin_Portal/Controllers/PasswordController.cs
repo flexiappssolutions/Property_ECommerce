@@ -11,11 +11,22 @@ namespace PE_Admin_Portal.Controllers
         // GET: Password
         public ActionResult ChangePassword()
         {
+            ViewBag.Title = "Change Password";
+
             return View();
         }
 
         public ActionResult ForgotPassword()
         {
+            ViewBag.Title = "Forgot Password";
+
+            return View();
+        }
+
+        public ActionResult PasswordReset()
+        {
+            ViewBag.Title = "Password Reset";
+
             return View();
         }
     }

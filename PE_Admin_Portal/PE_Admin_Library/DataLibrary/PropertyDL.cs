@@ -52,6 +52,23 @@ namespace PE_Admin_Library
             }
         }
 
+        public static List<PropertyDetail> RetrieveAllPropertyDetails()
+        {
+            try
+            {
+                using (var context = new PropertyDBEntities())
+                {
+                    var propertyDetails = context.PropertyDetails.Include("PropertyImages").OrderByDescending(p => p.DateUploaded).ToList();
+
+                    return propertyDetails;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static bool Update(PropertyDetail propertyDetails, List<long> imageIDToRemove, List<byte[]> newImages)
         {
             try
@@ -122,6 +139,41 @@ namespace PE_Admin_Library
                         }   
                         
                     }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool UpdatePropertyAsSold(PropertyDetail propertyDetails)
+        {
+            try
+            {
+                PropertyDetail existingPropertyDetails = new PropertyDetail();
+                using (var context = new PropertyDBEntities())
+                {
+                    existingPropertyDetails = context.PropertyDetails.Include("PropertyImages")
+                                    .Where(t => t.PropertyID == propertyDetails.PropertyID)
+                                    .FirstOrDefault();
+                }
+
+                if (existingPropertyDetails != null)
+                {
+                    existingPropertyDetails.Status = propertyDetails.Status;
+
+                    using (var context = new PropertyDBEntities())
+                    {                                                
+                        context.Entry(existingPropertyDetails).State = EntityState.Modified;
+                        context.SaveChanges();
+                    }        
                     return true;
                 }
                 else

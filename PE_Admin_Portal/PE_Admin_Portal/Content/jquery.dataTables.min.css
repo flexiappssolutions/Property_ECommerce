@@ -15,6 +15,14 @@ tr.shown td.edit-control {
     background: url('../img/edit_control_1.png') no-repeat center center;
 }
 
+td.sold-control {
+    background: url('../img/sold1.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.sold-control {
+    background: url('../img/sold1.png') no-repeat center center;
+}
+
 tfoot input {
         width: 100%;
         padding: 3px;

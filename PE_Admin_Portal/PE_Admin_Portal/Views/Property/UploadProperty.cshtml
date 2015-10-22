@@ -1,6 +1,5 @@
 ﻿
-@{
-    ViewBag.Title = "UploadProperty";
+@{    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="page-head">
@@ -11,7 +10,7 @@
         <a href="#"><i class="fa fa-folder"></i> Property</a>
         <!-- Divider -->
         <span class="divider">/</span>
-        <a href="/Property/UploadProperty" class="bread-current"> Upload New Property</a>
+        <a href="../Property/UploadProperty" class="bread-current"> Upload New Property</a>
     </div>
 
     <div class="clearfix"></div>
@@ -121,7 +120,8 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Price <img src="~/img/naira.png" alt="Naira image"/></label>
                                     <div class="col-lg-5">
-                                        <input type="text" class="form-control" placeholder="Price of Property" id="property_price">
+                                        <input type="text" class="form-control" placeholder="Price of Property" id="property_price" onkeyup="displayPrice()">
+                                        <span id="price" style="color:blue;font-family:'Cambria Math';font-size:14px;"></span>
                                     </div>
                                 </div>
 

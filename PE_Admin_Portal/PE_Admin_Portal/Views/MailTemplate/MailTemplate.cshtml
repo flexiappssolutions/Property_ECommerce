@@ -2,15 +2,16 @@
 @{    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="page-head">
-    <h2 class="pull-left"><i class="fa fa-folder"></i> Property</h2>
+    <h2 class="pull-left"><i class="fa fa-book"></i> E-Mail Templates</h2>
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-        <a href="#"><i class="fa fa-folder"></i> Property</a>
+        <a href="#"><i class="fa fa-book"></i> E-Mail Templates</a>
         <!-- Divider -->
         <span class="divider">/</span>
-        <a href="../Property/ViewProperty" class="bread-current"> View Properties</a>
+        <a href="../MailTemplate/MailTemplate" class="bread-current"> View E-Mail Templates</a>
     </div>
 
     <div class="clearfix"></div>
@@ -34,17 +35,14 @@
                     <div class="widget-content">
                         <div class="padd">
                             <br />
-                            <table id="properties" class="cell-border" cellspacing="0" width="100%">
+                            <table id="mailList" class="cell-border" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
-                                        <th>Title</th>
                                         <th>Type</th>
-                                        <th>No of Bedroom</th>
-                                        <th>Location</th>
-                                        <th>Price <img src="~/img/naira.png" alt="Naira image" /></th>
+                                        <th>From Email Address</th>
+                                        <th>Company</th>
                                     </tr>
                                 </thead>
 
@@ -52,25 +50,26 @@
                                     <tr>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
-                                        <th>Title</th>
                                         <th>Type</th>
-                                        <th>No of Bedroom</th>
-                                        <th>Location</th>
-                                        <th>Price <img src="~/img/naira.png" alt="Naira image" /></th>
+                                        <th>From Email Address</th>
+                                        <th>Company</th>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
                     </div>
                     <div class="widget-foot">
-                        <p style="font-family:Calibri;font-size:12px;color:navy;font-weight:bold;text-shadow:inherit">List of uploaded properties</p>
+                        <p style="font-family:Calibri;font-size:12px;color:navy;font-weight:bold;text-shadow:inherit">List of E-Mail Templates</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@Scripts.Render("~/bundles/view_property")  
+@Scripts.Render("~/bundles/mail_template")
+
+
+
+
 
 

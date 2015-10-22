@@ -27,5 +27,7 @@ namespace PE_Admin_Library.ModelLibrary.EntityFrameworkLib
     
         public virtual DbSet<PropertyDetail> PropertyDetails { get; set; }
         public virtual DbSet<PropertyImage> PropertyImages { get; set; }
+        public virtual DbSet<MailTemplate> MailTemplates { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

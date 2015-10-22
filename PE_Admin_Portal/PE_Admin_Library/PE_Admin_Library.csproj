@@ -54,7 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLibrary\MailTemplateDL.cs" />
     <Compile Include="DataLibrary\PropertyDL.cs" />
+    <Compile Include="DataLibrary\UserDL.cs" />
+    <Compile Include="ModelLibrary\EntityFrameworkLib\MailTemplate.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelLibrary\EntityFrameworkLib\PropertyDetail.cs">
       <DependentUpon>PropertyModel.tt</DependentUpon>
     </Compile>
@@ -76,12 +81,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PropertyModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelLibrary\EntityFrameworkLib\User.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelLibrary\Utility\Base64Conversions.cs" />
     <Compile Include="ModelLibrary\Utility\Crypter.cs" />
+    <Compile Include="ModelLibrary\Utility\Mail.cs" />
     <Compile Include="ModelLibrary\Utility\PasswordHash.cs" />
     <Compile Include="ModelLibrary\Utility\RijndaelEnhanced.cs" />
     <Compile Include="ModelLibrary\Utility\StatusUtil.cs" />
+    <Compile Include="ProcessLibrary\MailTemplatePL.cs" />
     <Compile Include="ProcessLibrary\PropertyPL.cs" />
+    <Compile Include="ProcessLibrary\UserPL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

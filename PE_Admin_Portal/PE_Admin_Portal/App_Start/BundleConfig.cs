@@ -42,13 +42,28 @@ namespace PE_Admin_Portal
                       "~/Scripts/filter.js",
                       "~/Scripts/custom.js",
                       "~/Scripts/_configurationFile.js",
-                      "~/Scripts/_customValidations.js"));
+                      "~/Scripts/_customValidations.js",
+                      "~/Scripts/Login/_Layout.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                      "~/Scripts/jquery.js",
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/_configurationFile.js",
+                      "~/Scripts/Login/LoginIn.js",
+                      "~/Scripts/Login/ForgotPassword.js",
+                      "~/Scripts/Login/PasswordReset.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/password").Include(
+                        "~/Scripts/Login/ChangePassword.js"));
+            
             bundles.Add(new ScriptBundle("~/bundles/upload_property").Include(
                         "~/Scripts/Property/UploadProperty.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/view_property").Include(                       
                        "~/Scripts/Property/ViewProperty.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/mail_template").Include(
+                       "~/Scripts/MailTemplate/MailTemplate.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",

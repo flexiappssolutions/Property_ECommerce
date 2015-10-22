@@ -198,15 +198,19 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MailTemplateAPIController.cs" />
+    <Compile Include="Controllers\MailTemplateController.cs" />
     <Compile Include="Controllers\PasswordController.cs" />
     <Compile Include="Controllers\PropertyAPIController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\UserAPIController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PropertyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,6 +219,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EmailTemplate\PasswordReset.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -351,6 +356,7 @@
     <Content Include="img\prettyPhoto\light_square\default_thumbnail.gif" />
     <Content Include="img\prettyPhoto\light_square\loader.gif" />
     <Content Include="img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="img\sold1.png" />
     <Content Include="img\star.gif" />
     <Content Include="img\user-big.jpg" />
     <Content Include="img\user.jpg" />
@@ -390,6 +396,12 @@
     <Content Include="Scripts\layouts\topCenter.js" />
     <Content Include="Scripts\layouts\topLeft.js" />
     <Content Include="Scripts\layouts\topRight.js" />
+    <Content Include="Scripts\Login\ChangePassword.js" />
+    <Content Include="Scripts\Login\ForgotPassword.js" />
+    <Content Include="Scripts\Login\LoginIn.js" />
+    <Content Include="Scripts\Login\PasswordReset.js" />
+    <Content Include="Scripts\Login\_Layout.js" />
+    <Content Include="Scripts\MailTemplate\MailTemplate.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\Property\UploadProperty.js" />
@@ -398,7 +410,9 @@
     <Content Include="Scripts\sparklines.js" />
     <Content Include="Scripts\_configurationFile.js" />
     <Content Include="Scripts\_customValidations.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -413,9 +427,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -431,6 +443,9 @@
     <Content Include="Views\Property\ViewProperty.cshtml" />
     <Content Include="Views\Property\UploadProperty.cshtml" />
     <Content Include="Views\Password\ChangePassword.cshtml" />
+    <Content Include="Views\MailTemplate\MailTemplate.cshtml" />
+    <Content Include="Views\Password\ForgotPassword.cshtml" />
+    <Content Include="Views\Password\PasswordReset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PE_Admin_Library\PE_Admin_Library.csproj">

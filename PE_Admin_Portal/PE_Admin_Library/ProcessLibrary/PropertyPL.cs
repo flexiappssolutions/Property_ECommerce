@@ -32,7 +32,7 @@ namespace PE_Admin_Library
             {
                 List<Object> returnedPropertyDetails = new List<Object>();
 
-                List<PropertyDetail> propertyDetails = PropertyDL.RetrievePropertyDetails();
+                List<PropertyDetail> propertyDetails = PropertyDL.RetrieveAllPropertyDetails();
 
                 foreach (PropertyDetail propertyDetail in propertyDetails)
                 {
@@ -78,6 +78,18 @@ namespace PE_Admin_Library
             try
             {
                 return PropertyDL.Update(propertyDetails, imageIDToRemove, newImages);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool UpdatePropertyAsSold(PropertyDetail propertyDetails)
+        {
+            try
+            {
+                return PropertyDL.UpdatePropertyAsSold(propertyDetails);
             }
             catch (Exception ex)
             {

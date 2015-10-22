@@ -98,8 +98,7 @@ function saveProperty() {
     } else {
         $("#updateBtn").attr("disabled", "disabled");
         var property_images = [];
-        $.each(images, function (key, image) {
-           // console.log(imageSrcToByteArray(image.src));
+        $.each(images, function (key, image) {           
             property_images.push(image.src.split(',')[1]);
         });        
 
@@ -126,9 +125,39 @@ function saveProperty() {
                 names = [];
             },
             error: function (xhr) {
-                alert('error');
+                noty({ text: 'Error experienced: ' + xhr.responseText, layout: 'bottomRight', type: 'warning', timeout: 10000 });
                 $("#updateBtn").removeAttr("disabled");
             }
         });
     }   
+}
+
+function displayPrice() {
+    var property_price = $('#property_price').val();
+    if (property_price.indexOf(",") <= -1) {
+        $('#price').html(addCommas(property_price));
+    } else {
+        $('#property_price').val(property_price.replace(/\,$/, ''));
+    }
+}
+
+function addCommas(str) {
+    var parts = (str + "").split("."),
+        main = parts[0],
+        len = main.length,
+        output = "",
+        i = len - 1;
+
+    while (i >= 0) {
+        output = main.charAt(i) + output;
+        if ((len - i) % 3 === 0 && i > 0) {
+            output = "," + output;
+        }
+        --i;
+    }
+    // put decimal part back
+    if (parts.length > 1) {
+        output += "." + parts[1];
+    }
+    return output;
 }
