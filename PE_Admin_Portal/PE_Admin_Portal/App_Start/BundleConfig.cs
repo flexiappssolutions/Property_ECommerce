@@ -14,72 +14,72 @@ namespace PE_Admin_Portal
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/AdminPortalJS/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/shared_libraries").Include(
-                      "~/Scripts/jquery.js",
-                      "~/Scripts/bootstrap.min.js",
-                      "~/Scripts/jquery-ui.min.js",
-                      "~/Scripts/moment.min.js",
-                      "~/Scripts/fullcalendar.min.js",
-                      "~/Scripts/jquery.rateit.min.js",
-                      "~/Scripts/jquery.prettyPhoto.js",
-                      "~/Scripts/jquery.slimscroll.min.js",
-                      "~/Scripts/jquery.dataTables.min.js",                       
-                      "~/Scripts/dataTables.tableTools.js",
-                      "~/Scripts/excanvas.min.js",
-                      "~/Scripts/jquery.flot.js",
-                      "~/Scripts/jquery.flot.resize.js",
-                      "~/Scripts/jquery.flot.pie.js",
-                      "~/Scripts/jquery.flot.stack.js",
-                      "~/Scripts/jquery.noty.js",
-                      "~/Scripts/default.js",                      
-                      "~/Scripts/layouts/bottomRight.js",                     
-                      "~/Scripts/sparklines.js",
-                      "~/Scripts/jquery.cleditor.min.js",
-                      "~/Scripts/bootstrap-datetimepicker.min.js",
-                      "~/Scripts/jquery.onoff.min.js",
-                      "~/Scripts/filter.js",
-                      "~/Scripts/custom.js",
-                      "~/Scripts/_configurationFile.js",
-                      "~/Scripts/_customValidations.js",
-                      "~/Scripts/Login/_Layout.js"));
+                      "~/Scripts/AdminPortalJS/jquery.js",
+                      "~/Scripts/AdminPortalJS/bootstrap.min.js",
+                      "~/Scripts/AdminPortalJS/jquery-ui.min.js",
+                      "~/Scripts/AdminPortalJS/moment.min.js",
+                      "~/Scripts/AdminPortalJS/fullcalendar.min.js",
+                      "~/Scripts/AdminPortalJS/jquery.rateit.min.js",
+                      "~/Scripts/AdminPortalJS/jquery.prettyPhoto.js",
+                      "~/Scripts/AdminPortalJS/jquery.slimscroll.min.js",
+                      "~/Scripts/AdminPortalJS/jquery.dataTables.min.js",
+                      "~/Scripts/AdminPortalJS/dataTables.tableTools.js",
+                      "~/Scripts/AdminPortalJS/excanvas.min.js",
+                      "~/Scripts/AdminPortalJS/jquery.flot.js",
+                      "~/Scripts/AdminPortalJS/jquery.flot.resize.js",
+                      "~/Scripts/AdminPortalJS/jquery.flot.pie.js",
+                      "~/Scripts/AdminPortalJS/jquery.flot.stack.js",
+                      "~/Scripts/AdminPortalJS/jquery.noty.js",
+                      "~/Scripts/AdminPortalJS/default.js",
+                      "~/Scripts/AdminPortalJS/layouts/bottomRight.js",
+                      "~/Scripts/AdminPortalJS/sparklines.js",
+                      "~/Scripts/AdminPortalJS/jquery.cleditor.min.js",
+                      "~/Scripts/AdminPortalJS/bootstrap-datetimepicker.min.js",
+                      "~/Scripts/AdminPortalJS/jquery.onoff.min.js",
+                      "~/Scripts/AdminPortalJS/filter.js",
+                      "~/Scripts/AdminPortalJS/custom.js",
+                      "~/Scripts/AdminPortalJS/_configurationFile.js",
+                      "~/Scripts/AdminPortalJS/_customValidations.js",
+                      "~/Scripts/AdminPortalJS/Login/_Layout.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
-                      "~/Scripts/jquery.js",
-                      "~/Scripts/bootstrap.min.js",
-                      "~/Scripts/_configurationFile.js",
-                      "~/Scripts/Login/LoginIn.js",
-                      "~/Scripts/Login/ForgotPassword.js",
-                      "~/Scripts/Login/PasswordReset.js"));
+                      "~/Scripts/AdminPortalJS/jquery.js",
+                      "~/Scripts/AdminPortalJS/bootstrap.min.js",
+                      "~/Scripts/AdminPortalJS/_configurationFile.js",
+                      "~/Scripts/AdminPortalJS/Login/LoginIn.js",
+                      "~/Scripts/AdminPortalJS/Login/ForgotPassword.js",
+                      "~/Scripts/AdminPortalJS/Login/PasswordReset.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/password").Include(
-                        "~/Scripts/Login/ChangePassword.js"));
+                        "~/Scripts/AdminPortalJS/Login/ChangePassword.js"));
             
             bundles.Add(new ScriptBundle("~/bundles/upload_property").Include(
-                        "~/Scripts/Property/UploadProperty.js"));
+                        "~/Scripts/AdminPortalJS/Property/UploadProperty.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/view_property").Include(                       
-                       "~/Scripts/Property/ViewProperty.js"));
+            bundles.Add(new ScriptBundle("~/bundles/view_property").Include(
+                       "~/Scripts/AdminPortalJS/Property/ViewProperty.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/mail_template").Include(
-                       "~/Scripts/MailTemplate/MailTemplate.js"));
+                       "~/Scripts/AdminPortalJS/MailTemplate/MailTemplate.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/font-awesome.min.css",
-                      "~/Content/jquery-ui.css",
-                      "~/Content/fullcalendar.css",
-                      "~/Content/prettyPhoto.css",
-                      "~/Content/rateit.css",
-                      "~/Content/bootstrap-datetimepicker.min.css",
-                      "~/Content/jquery.cleditor.css",                      
-                       "~/Content/jquery.dataTables.min.css",
-                      "~/Content/dataTables.bootstrap.min.css",
-                      "~/Content/dataTables.tableTools.css",
-                      "~/Content/jquery.onoff.css",
-                      "~/Content/style.css",
-                      "~/Content/widgets.css"));
+                      "~/Content/AdminPortalCSS/bootstrap.min.css",
+                      "~/Content/AdminPortalCSS/font-awesome.min.css",
+                      "~/Content/AdminPortalCSS/jquery-ui.css",
+                      "~/Content/AdminPortalCSS/fullcalendar.css",
+                      "~/Content/AdminPortalCSS/prettyPhoto.css",
+                      "~/Content/AdminPortalCSS/rateit.css",
+                      "~/Content/AdminPortalCSS/bootstrap-datetimepicker.min.css",
+                      "~/Content/AdminPortalCSS/jquery.cleditor.css",
+                       "~/Content/AdminPortalCSS/jquery.dataTables.min.css",
+                      "~/Content/AdminPortalCSS/dataTables.bootstrap.min.css",
+                      "~/Content/AdminPortalCSS/dataTables.tableTools.css",
+                      "~/Content/AdminPortalCSS/jquery.onoff.css",
+                      "~/Content/AdminPortalCSS/style.css",
+                      "~/Content/AdminPortalCSS/widgets.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

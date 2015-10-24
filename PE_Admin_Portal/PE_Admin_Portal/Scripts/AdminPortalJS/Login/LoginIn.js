@@ -30,7 +30,7 @@
                 window.localStorage.setItem("loggedInUsername", data.Username);
                 window.localStorage.setItem("loggedInUserID", data.ID);
 
-                window.location = ("Home/Dashboard");
+                window.location = ("../AdminHome/Dashboard");
 
                 $("#updateBtn").removeAttr("disabled");
             },

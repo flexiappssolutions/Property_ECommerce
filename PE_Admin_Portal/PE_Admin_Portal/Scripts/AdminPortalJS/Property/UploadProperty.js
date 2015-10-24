@@ -98,7 +98,7 @@ function saveProperty() {
     } else {
         $("#updateBtn").attr("disabled", "disabled");
         var property_images = [];
-        $.each(images, function (key, image) {           
+        $.each(images, function (key, image) {            
             property_images.push(image.src.split(',')[1]);
         });        
 
