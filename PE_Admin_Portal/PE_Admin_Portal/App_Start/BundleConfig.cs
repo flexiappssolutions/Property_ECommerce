@@ -84,7 +84,7 @@ namespace PE_Admin_Portal
             bundles.Add(new ScriptBundle("~/bundles/customer_portal_libraries").Include(
                      "~/Scripts/CustomerPortalJS/jquery.js",                     
                      "~/Scripts/CustomerPortalJS/bootstrap.min.js",
-                     "~/Scripts/CustomerPortalJS/jquery.placeholder.js",
+                     "~/Scripts/CustomerPortalJS/jquery.placeholder.js",                     
                      "~/Scripts/CustomerPortalJS/custom.js",
                      "~/Scripts/AdminPortalJS/_configurationFile.js"));
 
@@ -93,6 +93,17 @@ namespace PE_Admin_Portal
 
             bundles.Add(new ScriptBundle("~/bundles/customer_portal_property").Include(
                    "~/Scripts/CustomerPortalJS/property.list.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_contactus").Include(
+                  "~/Scripts/CustomerPortalJS/property.contactus.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_enquiry").Include(
+                  "~/Scripts/CustomerPortalJS/property.enquiry.js",
+                   "~/Scripts/CustomerPortalJS/jquery.cycle2.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_property_page").Include(
+                   "~/Scripts/CustomerPortalJS/property.page.js",
+                   "~/Scripts/CustomerPortalJS/jquery.cycle2.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/customer_portal_css").Include(
                      "~/Content/CustomerPortalCSS/bootstrap.css",

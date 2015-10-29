@@ -52,6 +52,25 @@ namespace PE_Admin_Library
             }
         }
 
+        public static PropertyDetail RetrievePropertyByID(long propertyID)
+        {
+            try
+            {
+                using (var context = new PropertyDBEntities())
+                {
+                    var propertyDetails = context.PropertyDetails.Include("PropertyImages")
+                                                    .Where(p => p.PropertyID.Equals(propertyID))
+                                                    .ToList();
+
+                    return propertyDetails.FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<PropertyImage> RetrieveSixPropertyImages()
         {
             try

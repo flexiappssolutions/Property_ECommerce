@@ -1,0 +1,213 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8" />
+    <title>Home 4 You | Property Enquiry</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/Content/customer_portal_css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/customer_portal_libraries")
+    @Scripts.Render("~/bundles/customer_portal_enquiry")
+</head>
+<body>
+    <!-- begin header -->
+    <header>
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="~/"><i class="icon-home"></i></a></li>
+                            <li><a href="financing.html" title="Financing">About Us</a></li>
+                            <li class="active"><a href="~/Property/PropertyList" title="Financing">Properties</a></li>
+                            <li><a href="~/Property/ContactUs" title="Contact us">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div id="logo-container">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <a class="brand" href="~/"><span class="logo-text">Home 4 you</span></a>
+                        <span class="tag-line hidden-phone">Helping you to find the right property</span>
+                    </div>
+                    <div class="span4">
+                        <div class="phone-number pull-right"><i class="icon-phone"></i> Call Us: <strong>1 (800) 765 4321</strong></div><!--/phone-number-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #logo-container -->
+    </header>
+    <!-- end header -->
+    <div class="container page-content">
+        <div class="row">
+            <div class="span8">
+                <div class="box-container">
+                    <div
+                         id="image_placeholder"
+                         data-cycle-fx=scrollHorz
+                         data-cycle-timeout=0
+                         data-cycle-pager="#adv-custom-pager"
+                         data-cycle-pager-template="<a href='#'><img src='{{src}}' width=20 height=20></a>">
+
+
+                    </div><!-- .cycle-slideshow -->
+                    <div id="adv-custom-pager"></div>
+                    <div class="clearfix">
+                        <div class="clearfix padding30">
+                            <h2 class="prop-title pull-left margin0" id="property_title"></h2>
+                        </div>
+                        <div class="clearfix padding030 row-fluid">
+                            <ul class="more-info pull-left span6">
+                                <li class="info-label clearfix">
+                                    <span class="pull-left">Bedrooms:</span>
+                                    <span class="qty pull-right" id="property_number_of_bedrooms"></span>
+                                </li>
+                                <li class="info-label clearfix">
+                                    <span class="pull-left">
+                                        Property
+                                        type:
+                                    </span>
+                                    <span class="qty pull-right" id="property_type"></span>
+                                </li>
+                                <li class="info-label clearfix">
+                                    <span class="pull-left">
+                                        Date Uploaded:
+                                    </span>
+                                    <span class="qty pull-right" id="property_date_uploaded"></span>
+                                </li>
+                            </ul>
+                            <ul class="more-info pull-right span6">
+                                <li class="info-label clearfix">
+                                    <span class="pull-left">Price:</span>
+                                    <span class="qty pull-right" id="property_price"></span>
+                                </li>
+                                <li class="info-label clearfix">
+                                    <span class="pull-left">
+                                        Listing
+                                        type:
+                                    </span>
+                                    <span class="qty pull-right">For Sale</span>
+                                </li>
+                                <li class="info-label clearfix">
+                                    <span class="pull-left">Location:</span>
+                                    <span class="qty pull-right" id="property_location"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix padding30">
+                            <h3>Property Description</h3>
+                            <div id="property_description"></div>
+                        </div>
+                        <div style="display:none">
+                            Property ID:
+                            <input class="form-control" id="property_id" />
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            <!-- .span4 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+    <!-- begin footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h2 class="brand widget-title">Home 4 you</h2>
+                        <p class="footer-tag-line">Helping you to find the right property</p>
+                        <p>
+                            HOME 4 YOU is The Best Solution To Find and Buy Properties Online. It aggregates the best properties in Nigeria that are available for sale. It also allows you to suggest areas in Nigeria where you would like to buy a property.
+                        </p>
+                    </div>
+                    <!-- .footer-company-info -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Address</h3>
+                        <div class="clearfix">
+                            <ul>
+                                <li class="clearfix">
+                                    <i class="icon-map-marker pull-left"></i>
+                                    <p class="pull-left">
+                                        1680 Washington Avenue
+                                        <br />Miami Beach 33139 FL
+                                    </p>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="icon-phone pull-left"></i>
+                                    <p class="pull-left">+1 (800) 765 4321</p>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="icon-envelope-alt pull-left"></i>
+                                    <p class="pull-left"><a href="#">realto@realto.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- .clearfix -->
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Company</h3>
+                        <ul>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Home" href="~/">Home</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="About Us" href="#">About Us</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Properties" href="#">Properties</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Contact Us" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Flickr</h3>
+                        <div class="flickr-widget" id="flickrImages">
+                        </div>
+                        <!-- .flickr-widget -->
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- end footer -->
+</body>
+</html>

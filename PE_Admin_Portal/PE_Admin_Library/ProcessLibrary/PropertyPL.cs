@@ -26,6 +26,48 @@ namespace PE_Admin_Library
             }
         }
 
+        public static Object RetrievePropertyByID(long propertyID)
+        {
+            try
+            {
+                Object propertyDetailObj = new object();
+
+                PropertyDetail propertyDetail = PropertyDL.RetrievePropertyByID(propertyID);
+
+                ICollection<Object> propertyImages = new List<Object>();
+                foreach (PropertyImage propertyImage in propertyDetail.PropertyImages)
+                {
+                    Object base64Image = new
+                    {
+                        Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length),
+                        ImageID = propertyImage.PropertyImageID
+                    };
+                    propertyImages.Add(base64Image);
+                }
+
+                propertyDetailObj = new
+                {
+                    PropertyID = propertyDetail.PropertyID,
+                    Title = propertyDetail.Title,
+                    Type = propertyDetail.Type,
+                    NumberOfBedrooms = propertyDetail.NumberOfBedrooms,
+                    Location = propertyDetail.Location,
+                    Price = propertyDetail.Price,
+                    ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
+                    Description = propertyDetail.Description,
+                    PropertyImages = propertyImages,
+                    DateUploaded = String.Format("{0:dddd, MMMM d, yyyy}", Convert.ToDateTime(propertyDetail.DateUploaded)),
+                    Status = propertyDetail.Status,
+                };
+
+                return propertyDetailObj;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+             
         public static List<Object> RetrieveTwelvePropertyDetails()
         {
             try
@@ -58,7 +100,7 @@ namespace PE_Admin_Library
                         ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
                         Description = propertyDetail.Description,
                         PropertyImages = propertyImages,
-                        DateUploaded = propertyDetail.DateUploaded,
+                        DateUploaded = String.Format("{0:dddd, MMMM d, yyyy}", Convert.ToDateTime(propertyDetail.DateUploaded)),
                         Status = propertyDetail.Status,
                     };
 
@@ -132,7 +174,7 @@ namespace PE_Admin_Library
                         ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
                         Description = propertyDetail.Description,
                         PropertyImages = propertyImages,
-                        DateUploaded = propertyDetail.DateUploaded,
+                        DateUploaded = String.Format("{0:dddd, MMMM d, yyyy}", Convert.ToDateTime(propertyDetail.DateUploaded)),
                         Status = propertyDetail.Status,
                     };
 
@@ -179,7 +221,7 @@ namespace PE_Admin_Library
                         ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
                         Description = propertyDetail.Description,
                         PropertyImages = propertyImages,
-                        DateUploaded = propertyDetail.DateUploaded,
+                        DateUploaded = String.Format("{0:dddd, MMMM d, yyyy}", Convert.ToDateTime(propertyDetail.DateUploaded)),
                         Status = propertyDetail.Status,
                     };
 

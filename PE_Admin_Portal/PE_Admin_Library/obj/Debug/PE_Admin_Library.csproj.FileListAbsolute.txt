@@ -5,6 +5,5 @@ C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin
 C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.xml
 C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\obj\Debug\PE_Admin_Library.csprojResolveAssemblyReference.cache
 C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\obj\Debug\PE_Admin_Library.dll
 C:\Users\OLATUNJI\Documents\projects\Property_ECommerce\PE_Admin_Portal\PE_Admin_Library\obj\Debug\PE_Admin_Library.pdb

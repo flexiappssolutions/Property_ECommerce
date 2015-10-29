@@ -1,0 +1,184 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8" />
+    <title>Home 4 You | Property Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/Content/customer_portal_css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/customer_portal_libraries")
+    @Scripts.Render("~/bundles/customer_portal_contactus")
+</head>
+<body>
+    <!-- begin header -->
+    <header>
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="~/"><i class="icon-home"></i></a></li>
+                            <li><a href="financing.html" title="Financing">About Us</a></li>
+                            <li><a href="~/Property/PropertyList" title="Financing">Properties</a></li>
+                            <li class="active"><a href="~/Property/ContactUs" title="Contact us">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div id="logo-container">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <a class="brand" href="~/"><span class="logo-text">Home 4 you</span></a>
+                        <span class="tag-line hidden-phone">Helping you to find the right property</span>
+                    </div>
+                    <div class="span4">
+                        <div class="phone-number pull-right"><i class="icon-phone"></i> Call Us: <strong>1 (800) 765 4321</strong></div><!--/phone-number-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #logo-container -->
+    </header>
+    <!-- end header -->
+    <div class="container page-content">
+        <div class="row">
+            <div class="span8">
+                <div class="box-container">
+                    <div class="padding30">
+                        <h2 class="page-title">Contact us</h2>
+                        <ul class="unstyled">
+                            <li>
+                                <i class="icon-envelope-alt"></i>
+                                Email: realto@realto.com
+                            </li>
+                            <li>
+                                <i class="icon-phone"></i>
+                                Phone: +1 786 345 6789
+                            </li>
+                            <li>
+                                <i class="icon-linkedin"></i>
+                                linkedin.com/realto
+                            </li>
+                            <li>
+                                <i class="icon-twitter"></i>
+                                twitter.com/realto
+                            </li>
+                        </ul>
+                        <div class="row-fluid">
+                            <div class="margin300">
+                                <input type="text" class="span12" placeholder="Please, insert your name" id="customer_Name">
+                                <input class="span6" placeholder="Please, insert your phone number" id="customer_phone_number" type="text">
+                                <input class="span6 pull-right" placeholder="Please, insert your email" id="customer_email_address" type="text">
+                                <textarea class="span12" placeholder="Write your message" rows="6" id="customer_message"></textarea>
+                                <div class="clearfix">
+                                    <button id="sendBtn" class="btn btn-realto span6" onclick="sendMessage()" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .span8 -->                      
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+    <!-- begin footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h2 class="brand widget-title">Home 4 you</h2>
+                        <p class="footer-tag-line">Helping you to find the right property</p>
+                        <p>
+                            HOME 4 YOU is The Best Solution To Find and Buy Properties Online. It aggregates the best properties in Nigeria that are available for sale. It also allows you to suggest areas in Nigeria where you would like to buy a property.
+                        </p>
+                    </div>
+                    <!-- .footer-company-info -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Address</h3>
+                        <div class="clearfix">
+                            <ul>
+                                <li class="clearfix">
+                                    <i class="icon-map-marker pull-left"></i>
+                                    <p class="pull-left">
+                                        1680 Washington Avenue
+                                        <br />Miami Beach 33139 FL
+                                    </p>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="icon-phone pull-left"></i>
+                                    <p class="pull-left">+1 (800) 765 4321</p>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="icon-envelope-alt pull-left"></i>
+                                    <p class="pull-left"><a href="#">realto@realto.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- .clearfix -->
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Company</h3>
+                        <ul>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Home" href="~/">Home</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="About Us" href="#">About Us</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Properties" href="#">Properties</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Contact Us" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Flickr</h3>
+                        <div class="flickr-widget" id="flickrImages">
+                        </div>
+                        <!-- .flickr-widget -->
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- end footer -->
+</body>
+</html>

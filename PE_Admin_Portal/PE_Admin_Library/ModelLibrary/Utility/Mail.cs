@@ -59,6 +59,104 @@ namespace PE_Admin_Library
                 throw ex;
             }
 
+        }
+
+        public static void SendPropertyEnquiryMessage(string customerName, string customerEmailAddress, string phoneNumber, string message, string propertyID)
+        {
+            try
+            {
+                string key = System.Configuration.ConfigurationManager.AppSettings.Get("ekey");
+                string encrypted_property_id = Crypter.Encrypt(key, propertyID);
+
+                MailTemplate mailTemplate = MailTemplatePL.RetrieveMailTemplateByType("Property Enquiries");
+                string toAddress = mailTemplate.FromEmailAddress;
+                string username = mailTemplate.Username;
+                string password = mailTemplate.Password;
+                string company = mailTemplate.Company;
+                string websiteUrl = mailTemplate.WebsiteUrl + "Property/PropertyEnquiry?eq=" + encrypted_property_id;
+                string footer = mailTemplate.Footer;
+                string subject = mailTemplate.Subject;                
+
+                string body = "";
+
+                body = System.IO.File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/EmailTemplate/Message.txt"));
+                body = body.Replace("#company", company);
+                body = body.Replace("#message", message);
+                body = body.Replace("#customerName", customerName);
+                body = body.Replace("#customerPhoneNumber", phoneNumber);
+                body = body.Replace("#customerEmailAddress", customerEmailAddress);
+                body = body.Replace("#url", websiteUrl);
+                body = body.Replace("#websiteUrl", mailTemplate.WebsiteUrl);
+                body = body.Replace("#footer", footer);                
+
+
+                MailMessage mail = new MailMessage();
+                mail.To.Add(toAddress);
+                mail.From = new MailAddress(customerEmailAddress);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential(username, password);// Enter seders User name and password
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public static void SendEnquiryMessage(string customerName, string customerEmailAddress, string phoneNumber, string message)
+        {
+            try
+            {
+                MailTemplate mailTemplate = MailTemplatePL.RetrieveMailTemplateByType("General Enquiries");
+                string toAddress = mailTemplate.FromEmailAddress;
+                string username = mailTemplate.Username;
+                string password = mailTemplate.Password;
+                string company = mailTemplate.Company;
+                string websiteUrl = mailTemplate.WebsiteUrl;
+                string footer = mailTemplate.Footer;
+                string subject = mailTemplate.Subject;
+
+                string body = "";
+
+                body = System.IO.File.ReadAllText(System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/EmailTemplate/Message2.txt"));
+                body = body.Replace("#company", company);
+                body = body.Replace("#message", message);
+                body = body.Replace("#customerName", customerName);
+                body = body.Replace("#customerPhoneNumber", phoneNumber);
+                body = body.Replace("#customerEmailAddress", customerEmailAddress);
+                body = body.Replace("#url", websiteUrl);                
+                body = body.Replace("#footer", footer);
+
+
+                MailMessage mail = new MailMessage();
+                mail.To.Add(toAddress);
+                mail.From = new MailAddress(customerEmailAddress);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential(username, password);// Enter seders User name and password
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }        
 
         public static bool networkIsAvailable()

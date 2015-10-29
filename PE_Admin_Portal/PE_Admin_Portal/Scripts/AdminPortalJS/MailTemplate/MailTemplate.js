@@ -168,7 +168,7 @@ function format(d) {
     table += '<td><input class="form-control" placeholder="Enter Username" id="username" value="' + d.Username + '"/></td>';
     table += '</tr>';
     table += '<tr>';
-    table += '<td style="color:navy;width:30%;font-family:Calibri;font-weight:bold;">Email:</td>';
+    table += '<td style="color:navy;width:30%;font-family:Calibri;font-weight:bold;">Password:</td>';
     table += '<td><input class="form-control" placeholder="Enter Password" id="password" value="' + d.Password + '"/></td>';
     table += '</tr>';
     table += '<tr>';

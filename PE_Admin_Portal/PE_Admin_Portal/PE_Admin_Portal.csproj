@@ -215,6 +215,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\PropertyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -222,6 +223,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EmailTemplate\Message.txt" />
+    <Content Include="App_Data\EmailTemplate\Message2.txt" />
     <Content Include="App_Data\EmailTemplate\PasswordReset.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\AdminPortalCSS\bootstrap-datetimepicker.min.css" />
@@ -502,6 +505,9 @@
     <Content Include="Scripts\CustomerPortalJS\jquery.cycle2.min.js" />
     <Content Include="Scripts\CustomerPortalJS\jquery.js" />
     <Content Include="Scripts\CustomerPortalJS\jquery.placeholder.js" />
+    <Content Include="Scripts\CustomerPortalJS\property.contactus.js" />
+    <Content Include="Scripts\CustomerPortalJS\property.enquiry.js" />
+    <Content Include="Scripts\CustomerPortalJS\property.page.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -552,6 +558,9 @@
     <Content Include="Scripts\CustomerPortalJS\library.property.js" />
     <Content Include="Views\Property\PropertyList.cshtml" />
     <Content Include="Scripts\CustomerPortalJS\property.list.js" />
+    <Content Include="Views\Property\PropertyPage.cshtml" />
+    <Content Include="Views\Property\ContactUs.cshtml" />
+    <Content Include="Views\Property\PropertyEnquiry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PE_Admin_Library\PE_Admin_Library.csproj">

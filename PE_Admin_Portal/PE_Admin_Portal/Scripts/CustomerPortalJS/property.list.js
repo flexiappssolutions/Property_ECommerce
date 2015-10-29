@@ -36,6 +36,15 @@ function updateFlickrImages(propertyImages) {
     $('#flickrImages').html(imagehtml);
 }
 
+function displayProperty(propertyID) {
+    var property = propertyDetails[propertyID];
+    if (localStorage.getItem("TheProperty") === null) {
+        window.localStorage.removeItem("TheProperty");
+    }
+    window.localStorage.setItem("TheProperty", JSON.stringify(property));
+    window.location = "../Property/PropertyPage";
+}
+
 function updateTiles(page) {
     $('#properties').html('');
 
@@ -57,7 +66,7 @@ function updateTiles(page) {
             html += '<img alt="image" src="' + propertyDetails[i].PropertyImages[0].Image + '" class="media-object" style="height:210px;width:370px;max-height:210px;max-width:370px;float:left;margin-left:15px">';
             html += '</a>';
             html += '<div class="span4 prop-info" style="float:right;">';
-            html += '<a style="text-decoration: underline;cursor:pointer;"><h3 class="prop-title" style="font-family:Calibri;font-size:16px;font-weight:bold;color:green;text-align:center;">' + propertyDetails[i].Title + '</h3></a>';
+            html += '<a style="text-decoration: underline;cursor:pointer;" onclick="displayProperty(' + i + ')"><h3 class="prop-title" style="font-family:Calibri;font-size:16px;font-weight:bold;color:green;text-align:center;">' + propertyDetails[i].Title + '</h3></a>';
             html += '<ul class="more-info clearfix">';
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;" ><span class="pull-left">Location:</span> <span class="qty pull-right">' + propertyDetails[i].Location + '</span></li>';
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;" ><span class="pull-left">Beds:</span> <span class="qty pull-right">' + propertyDetails[i].NumberOfBedrooms + '</span></li>';
