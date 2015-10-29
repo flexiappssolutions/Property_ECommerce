@@ -123,6 +123,7 @@ function saveProperty() {
                 $("#potential_property_images").html('');
                 property_images = [];
                 names = [];
+                $('#price').html('');
             },
             error: function (xhr) {
                 noty({ text: 'Error experienced: ' + xhr.responseText, layout: 'bottomRight', type: 'warning', timeout: 10000 });

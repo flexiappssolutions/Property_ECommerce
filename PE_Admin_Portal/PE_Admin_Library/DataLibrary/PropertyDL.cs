@@ -35,15 +35,32 @@ namespace PE_Admin_Library
             }
         }
 
-        public static List<PropertyDetail> RetrievePropertyDetails()
+        public static List<PropertyDetail> RetrieveTwelvePropertyDetails()
         {
             try
             {
                 using (var context = new PropertyDBEntities())
                 {
-                    var propertyDetails = context.PropertyDetails.Include("PropertyImages").Where(p => p.Status != StatusUtil.PropertyStatus.Sold.ToString() && p.Status != StatusUtil.PropertyStatus.Deleted.ToString()).OrderByDescending(p => p.DateUploaded).ToList();
+                    var propertyDetails = context.PropertyDetails.Include("PropertyImages").Where(p => p.Status != StatusUtil.PropertyStatus.Sold.ToString() && p.Status != StatusUtil.PropertyStatus.Deleted.ToString()).OrderByDescending(p => p.DateUploaded).Take(12).ToList();
 
                     return propertyDetails;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<PropertyImage> RetrieveSixPropertyImages()
+        {
+            try
+            {
+                using (var context = new PropertyDBEntities())
+                {
+                    var propertyImages = context.PropertyImages.Include("PropertyDetail").OrderByDescending(p => p.PropertyImageID).Take(6).ToList();
+
+                    return propertyImages;
                 }
             }
             catch (Exception ex)
@@ -61,6 +78,50 @@ namespace PE_Admin_Library
                     var propertyDetails = context.PropertyDetails.Include("PropertyImages").OrderByDescending(p => p.DateUploaded).ToList();
 
                     return propertyDetails;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<PropertyDetail> SearchPropertyDetails(string location, string propertyType, string numberOfBedrooms, string priceFrom, string priceTo)
+        {
+            try
+            {
+                using (var context = new PropertyDBEntities())
+                {
+                    IQueryable<PropertyDetail> propertyDetails = context.PropertyDetails.Include("PropertyImages")
+                                                                .OrderByDescending(p => p.DateUploaded)
+                                                                .Where(x => x.Location.Equals(location));
+
+                    if (!string.IsNullOrEmpty(propertyType))
+                        propertyDetails = propertyDetails.Where(x => x.Type.Equals(propertyType));
+
+                    if (!string.IsNullOrEmpty(numberOfBedrooms))
+                        propertyDetails = propertyDetails.Where(x => x.NumberOfBedrooms.Equals(numberOfBedrooms));
+
+                    if (!string.IsNullOrEmpty(priceFrom) && !string.IsNullOrEmpty(priceTo))
+                    {
+                        decimal fromPrice = Math.Round(Convert.ToDecimal(priceFrom), 0);
+                        decimal toPrice = Math.Round(Convert.ToDecimal(priceTo), 0);
+                        propertyDetails = propertyDetails.Where(x => x.Price >= fromPrice && x.Price <= toPrice);
+                    }
+
+                    if (!string.IsNullOrEmpty(priceFrom) && string.IsNullOrEmpty(priceTo))
+                    {
+                        decimal fromPrice = Math.Round(Convert.ToDecimal(priceFrom), 0);                        
+                        propertyDetails = propertyDetails.Where(x => x.Price >= fromPrice);
+                    }
+
+                    if (string.IsNullOrEmpty(priceFrom) && !string.IsNullOrEmpty(priceTo))
+                    {                        
+                        decimal toPrice = Math.Round(Convert.ToDecimal(priceTo), 0);
+                        propertyDetails = propertyDetails.Where(x => x.Price <= toPrice);
+                    }
+
+                    return propertyDetails.ToList();
                 }
             }
             catch (Exception ex)

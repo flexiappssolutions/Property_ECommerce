@@ -22,5 +22,12 @@ namespace PE_Admin_Portal.Controllers
 
             return View();
         }
+
+        public ActionResult PropertyList()
+        {
+            ViewBag.Title = "Property List";
+
+            return View();
+        }
     }
 }

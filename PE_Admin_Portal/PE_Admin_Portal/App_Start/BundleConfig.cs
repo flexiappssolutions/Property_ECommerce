@@ -44,7 +44,7 @@ namespace PE_Admin_Portal
                       "~/Scripts/AdminPortalJS/_configurationFile.js",
                       "~/Scripts/AdminPortalJS/_customValidations.js",
                       "~/Scripts/AdminPortalJS/Login/_Layout.js"));
-
+           
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                       "~/Scripts/AdminPortalJS/jquery.js",
                       "~/Scripts/AdminPortalJS/bootstrap.min.js",
@@ -80,6 +80,27 @@ namespace PE_Admin_Portal
                       "~/Content/AdminPortalCSS/jquery.onoff.css",
                       "~/Content/AdminPortalCSS/style.css",
                       "~/Content/AdminPortalCSS/widgets.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_libraries").Include(
+                     "~/Scripts/CustomerPortalJS/jquery.js",                     
+                     "~/Scripts/CustomerPortalJS/bootstrap.min.js",
+                     "~/Scripts/CustomerPortalJS/jquery.placeholder.js",
+                     "~/Scripts/CustomerPortalJS/custom.js",
+                     "~/Scripts/AdminPortalJS/_configurationFile.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_home").Include(
+                   "~/Scripts/CustomerPortalJS/library.property.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_property").Include(
+                   "~/Scripts/CustomerPortalJS/property.list.js"));
+
+            bundles.Add(new StyleBundle("~/Content/customer_portal_css").Include(
+                     "~/Content/CustomerPortalCSS/bootstrap.css",
+                     "~/Content/CustomerPortalCSS/bootstrap-responsive.css",
+                     "~/Content/CustomerPortalCSS/font-awesome.min.css",
+                     "~/Content/CustomerPortalCSS/colors.css",
+                     "~/Content/CustomerPortalCSS/style.css",
+                      "~/Content/CustomerPortalCSS/Wobblebar.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

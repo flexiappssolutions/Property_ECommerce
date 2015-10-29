@@ -67,6 +67,57 @@ namespace PE_Admin_Portal.Controllers
             }
         }
 
+        [HttpPost]
+        public HttpResponseMessage Search([FromBody]PropertyModel propertyModel)
+        {
+            try
+            {
+                IEnumerable<Object> propertyDetails = PropertyPL.SearchPropertyDetails(propertyModel.Location, propertyModel.Type, propertyModel.NumberOfBedrooms, propertyModel.PriceFrom, propertyModel.PriceTo);
+                object returnedPropertyDetails = new { data = propertyDetails };
+                return Request.CreateResponse(HttpStatusCode.OK, returnedPropertyDetails);
+            }
+            catch (Exception ex)
+            {
+                var response = Request.CreateResponse(HttpStatusCode.BadRequest);
+                response.ReasonPhrase = ex.Message;
+                return response;
+            }
+        }
+
+        [HttpGet]
+        public HttpResponseMessage RetrieveTwelvePropertyDetails()
+        {
+            try
+            {
+                IEnumerable<Object> propertyDetails = PropertyPL.RetrieveTwelvePropertyDetails();
+                object returnedPropertyDetails = new { data = propertyDetails };
+                return Request.CreateResponse(HttpStatusCode.OK, returnedPropertyDetails);
+            }
+            catch (Exception ex)
+            {
+                var response = Request.CreateResponse(HttpStatusCode.BadRequest);
+                response.ReasonPhrase = ex.Message;
+                return response;
+            }
+        }
+        
+        [HttpGet]
+        public HttpResponseMessage RetrieveSixPropertyImages()
+        {
+            try
+            {
+                IEnumerable<Object> propertyImages = PropertyPL.RetrieveSixPropertyImages();
+                object returnedPropertyImages = new { data = propertyImages };
+                return Request.CreateResponse(HttpStatusCode.OK, returnedPropertyImages);
+            }
+            catch (Exception ex)
+            {
+                var response = Request.CreateResponse(HttpStatusCode.BadRequest);
+                response.ReasonPhrase = ex.Message;
+                return response;
+            }
+        }
+
         [HttpPut]
         public HttpResponseMessage Update([FromBody]PropertyModel propertyModel)
         {

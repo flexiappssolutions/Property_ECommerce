@@ -26,6 +26,80 @@ namespace PE_Admin_Library
             }
         }
 
+        public static List<Object> RetrieveTwelvePropertyDetails()
+        {
+            try
+            {
+                List<Object> returnedPropertyDetails = new List<Object>();
+
+                List<PropertyDetail> propertyDetails = PropertyDL.RetrieveTwelvePropertyDetails();
+
+                foreach (PropertyDetail propertyDetail in propertyDetails)
+                {
+                    ICollection<Object> propertyImages = new List<Object>();
+                    foreach (PropertyImage propertyImage in propertyDetail.PropertyImages)
+                    {
+                        Object base64Image = new
+                        {
+                            Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length),
+                            ImageID = propertyImage.PropertyImageID
+                        };
+                        propertyImages.Add(base64Image);
+                    }
+
+                    Object propertyDetailObj = new
+                    {
+                        PropertyID = propertyDetail.PropertyID,
+                        Title = propertyDetail.Title,
+                        Type = propertyDetail.Type,
+                        NumberOfBedrooms = propertyDetail.NumberOfBedrooms,
+                        Location = propertyDetail.Location,
+                        Price = propertyDetail.Price,
+                        ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
+                        Description = propertyDetail.Description,
+                        PropertyImages = propertyImages,
+                        DateUploaded = propertyDetail.DateUploaded,
+                        Status = propertyDetail.Status,
+                    };
+
+                    returnedPropertyDetails.Add(propertyDetailObj);
+                }
+
+                return returnedPropertyDetails;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<Object> RetrieveSixPropertyImages()
+        {
+            try
+            {
+                List<Object> returnedPropertyImages = new List<Object>();
+
+                List<PropertyImage> propertyImages = PropertyDL.RetrieveSixPropertyImages();
+
+                foreach (PropertyImage propertyImage in propertyImages)
+                {                    
+                    Object base64Image = new
+                    {
+                        Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length)
+                    };
+
+
+                    returnedPropertyImages.Add(base64Image);
+                }
+
+                return returnedPropertyImages;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<Object> RetrievePropertyDetails()
         {
             try
@@ -44,6 +118,53 @@ namespace PE_Admin_Library
                             Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length),
                             ImageID = propertyImage.PropertyImageID
                         };                       
+                        propertyImages.Add(base64Image);
+                    }
+
+                    Object propertyDetailObj = new
+                    {
+                        PropertyID = propertyDetail.PropertyID,
+                        Title = propertyDetail.Title,
+                        Type = propertyDetail.Type,
+                        NumberOfBedrooms = propertyDetail.NumberOfBedrooms,
+                        Location = propertyDetail.Location,
+                        Price = propertyDetail.Price,
+                        ModifiedPrice = Convert.ToDecimal(propertyDetail.Price).ToString("N"),
+                        Description = propertyDetail.Description,
+                        PropertyImages = propertyImages,
+                        DateUploaded = propertyDetail.DateUploaded,
+                        Status = propertyDetail.Status,
+                    };
+
+                    returnedPropertyDetails.Add(propertyDetailObj);
+                }
+
+                return returnedPropertyDetails;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<Object> SearchPropertyDetails(string location, string propertyType, string numberOfBedrooms, string priceFrom, string priceTo)
+        {
+            try
+            {
+                List<Object> returnedPropertyDetails = new List<Object>();
+
+                List<PropertyDetail> propertyDetails = PropertyDL.SearchPropertyDetails(location, propertyType, numberOfBedrooms, priceFrom, priceTo);
+
+                foreach (PropertyDetail propertyDetail in propertyDetails)
+                {
+                    ICollection<Object> propertyImages = new List<Object>();
+                    foreach (PropertyImage propertyImage in propertyDetail.PropertyImages)
+                    {
+                        Object base64Image = new
+                        {
+                            Image = "data:image/png;base64," + System.Convert.ToBase64String(propertyImage.Image, 0, propertyImage.Image.Length),
+                            ImageID = propertyImage.PropertyImageID
+                        };
                         propertyImages.Add(base64Image);
                     }
 

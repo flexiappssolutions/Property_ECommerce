@@ -5,64 +5,290 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Login In</title>
-    @Styles.Render("~/Content/css")
+    <title>Welcome to Home 4 You</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/Content/customer_portal_css")  
     @Scripts.Render("~/bundles/modernizr")    
-    @Scripts.Render("~/bundles/login")    
+    @Scripts.Render("~/bundles/customer_portal_libraries")  
+    @Scripts.Render("~/bundles/customer_portal_home")   
 </head>
 <body>
-
-    <!-- Form area -->
-    <div class="admin-form">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Widget starts -->
-                    <div class="widget worange">
-                        <!-- Widget head -->
-                        <div class="widget-head">
-                            <i class="fa fa-lock"></i> Login
-                        </div>
-
-                        <div class="widget-content">
-                            <div class="padd">
-                                <!-- Login form -->
-                                <div class="form-horizontal">
-                                    <!-- Email -->
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-3" for="username">Username</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" class="form-control" id="username" placeholder="Username">
-                                        </div>
-                                    </div>
-                                    <!-- Password -->
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-3" for="password">Password</label>
-                                        <div class="col-lg-9">
-                                            <input type="password" class="form-control" id="password" placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <!-- Remember me checkbox and sign in button -->
-
-                                    <div class="col-lg-9 col-lg-offset-3">
-                                        <button id="updateBtn" onclick="LoginIn()" type="submit" class="btn btn-info btn-sm">Sign in</button>
-                                    </div>
-                                    <br />
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="widget-foot">
-                           Forgot Password? <a href="Password/ForgotPassword">Click here</a>
-                        </div>
+    <!-- begin header -->
+    <header>
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="~/"><i class="icon-home"></i></a></li>                           
+                            <li><a href="financing.html" title="Financing">About Us</a></li>
+                            <li><a href="~/Property/PropertyList" title="Property List">Properties</a></li>                                                        
+                            <li><a href="contact.html" title="Contact us">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div id="logo-container">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <a class="brand" href="~/"><span class="logo-text">Home 4 you</span></a>
+                        <span class="tag-line hidden-phone">Helping you to find the right property</span>
+                    </div>
+                    <div class="span4">
+                        <div class="phone-number pull-right"><i class="icon-phone"></i> Call Us: <strong>1 (800) 765 4321</strong></div><!--/phone-number-->
                     </div>
                 </div>
             </div>
         </div>
+        <!-- #logo-container -->
+    </header>
+    <!-- end header -->
+    <div id="home-search-container">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="widget pull-right">
+                        <div class="row">
+                            <div class="span12 head-container">
+                                <div class="row">
+                                    <div class="span8 hidden-phone">
+                                        <h2 class="head-title">Welcome to Home 4 You</h2>
+                                        <p class="head-message">
+                                            <strong style="font-family:Calibri">HOME 4 YOU is The Best Solution To Find and Buy Properties Online.</strong><br />
+                                            <span style="font-family:'Trebuchet MS';font-size:16px">It aggregates the best properties in Nigeria that are available for sale. It also allows you to suggest areas in Nigeria where you would like to buy a property.</span>
+                                        </p>                                        
+                                    </div>
+                                    <div class="span4">
+                                        <div class="search-form">
+                                            <p>Find your new property</p>
+                                            <div class="row-fluid">
+                                                <select class="span12 select" name="type" id="property_location">
+                                                    <option value="">Location</option>
+                                                    <option value="Abia">Abia</option>
+                                                    <option value="Adamawa">Adamawa</option>
+                                                    <option value="Anambra">Anambra</option>
+                                                    <option value="Akwa Ibom">Akwa Ibom</option>
+                                                    <option value="Bauchi">Bauchi</option>
+                                                    <option value="Bayelsa">Bayelsa</option>
+                                                    <option value="Benue">Benue</option>
+                                                    <option value="Borno">Borno</option>
+                                                    <option value="Cross River">Cross River</option>
+                                                    <option value="Delta">Delta</option>
+                                                    <option value="Ebonyi">Ebonyi</option>
+                                                    <option value="Enugu">Enugu</option>
+                                                    <option value="Edo">Edo</option>
+                                                    <option value="Ekiti">Ekiti</option>
+                                                    <option value="Gombe">Gombe</option>
+                                                    <option value="Imo">Imo</option>
+                                                    <option value="Jigawa">Jigawa</option>
+                                                    <option value="Kaduna">Kaduna</option>
+                                                    <option value="Kano">Kano</option>
+                                                    <option value="Katsina">Katsina</option>
+                                                    <option value="Kebbi">Kebbi</option>
+                                                    <option value="Kogi">Kogi</option>
+                                                    <option value="Kwara">Kwara</option>
+                                                    <option value="Lagos">Lagos</option>
+                                                    <option value="Nasarawa">Nasarawa</option>
+                                                    <option value="Niger">Niger</option>
+                                                    <option value="Ogun">Ogun</option>
+                                                    <option value="Ondo">Ondo</option>
+                                                    <option value="Osun">Osun</option>
+                                                    <option value="Oyo">Oyo</option>
+                                                    <option value="Plateau">Plateau</option>
+                                                    <option value="Rivers">Rivers</option>
+                                                    <option value="Sokoto">Sokoto</option>
+                                                    <option value="Taraba">Taraba</option>
+                                                    <option value="Yobe">Yobe</option>
+                                                    <option value="Zamfara">Zamfara</option>
+                                                    <option value="Federal Capital Territory (FCT)">Federal Capital Territory (FCT)</option>
+                                                </select>
+                                                <select class="span12 select" name="type" id="property_type">
+                                                    <option value="">Property Type</option>
+                                                    <option value="House">House</option>
+                                                    <option value="Flat">Flat</option>
+                                                    <option value="Land">Land</option>
+                                                    <option value="Commercial">Commercial</option>
+                                                </select>
+                                                <select class="span12 select" name="beds" id="property_number_of_bedrooms">
+                                                    <option value="">Number of Bedrooms</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5+">5+</option>
+                                                </select>                                                                                               
+                                                <select class="span12 select" name="price-from" id="property_price_from">
+                                                    <option value="">Price (Naira) from</option>
+                                                    <option value="5000000">from N5,000,000</option>
+                                                    <option value="15000000">to N15,000,000</option>
+                                                    <option value="25000000">to N25,000,000</option>
+                                                    <option value="35000000">to N35,000,000</option>
+                                                    <option value="45000000">to N45,000,000</option>
+                                                    <option value="55000000">to N55,000,000</option>
+                                                    <option value="65000000">from N65,000,000</option>
+                                                    <option value="75000000">from N75,000,000</option>
+                                                    <option value="85000000">from N85,000,000</option>
+                                                    <option value="95000000">from N95,000,000</option>
+                                                </select>
+                                                <select class="span12 select" name="price-to" id="property_price_to">
+                                                    <option value="">Price (Naira) to</option>
+                                                    <option value="15000000">to N15,000,000</option>
+                                                    <option value="25000000">to N25,000,000</option>
+                                                    <option value="35000000">to N35,000,000</option>
+                                                    <option value="45000000">to N45,000,000</option>
+                                                    <option value="55000000">to N55,000,000</option>
+                                                    <option value="65000000">from N65,000,000</option>
+                                                    <option value="75000000">from N75,000,000</option>
+                                                    <option value="85000000">from N85,000,000</option>
+                                                    <option value="95000000">from N95,000,000</option>
+                                                    <option value="100000000">from N100,000,000</option>
+                                                </select>
+                                                <div class="clearfix">
+                                                    <button id="searchBtn" class="btn pull-right span6 btn-realto-form btn-large" onclick="searchProperty()" type="submit">Search</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- .search-form -->
+                                    </div>
+                                    <!-- .span4 -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .row -->
+                    </div>
+                    <!-- .search-holder -->
+                </div>
+                <!-- .span12 -->
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+    </div>
+    <div id="latest-properties">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h2 class="secion-title">Latest Properties</h2>
+                </div>
+            </div>
+
+            <!-- Begin Carousel -->
+            <div class="row">
+                <div id="loadingWrapper">
+                    <div id="realto-carousel" class="carousel slide span12">
+                        <div class="carousel-navigation pull-right" id="showCarousel">
+                            <a class="serif italic pull-left view-all-carousel" href="#">View More</a>
+                            <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
+                            <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
+                        </div>
+                        <div class="carousel-inner">
+
+                            <div class="item active">
+                                <ul class="thumbnails" id="ulActive"></ul>
+                            </div><!-- .item -->
+                            <div class="item" id="divPassive">
+                                <ul class="thumbnails" id="ulPassive"></ul>
+                            </div><!-- .item -->
+                        </div>
+                    </div><!-- .carousel-inner -->
+                </div>
+            </div><!--End Carousel-->
+
+        </div><!-- .container  -->
     </div>   
+    <!-- begin footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h2 class="brand widget-title">Home 4 you</h2>
+                        <p class="footer-tag-line">Helping you to find the right property</p>
+                        <p>
+                            HOME 4 YOU is The Best Solution To Find and Buy Properties Online. It aggregates the best properties in Nigeria that are available for sale. It also allows you to suggest areas in Nigeria where you would like to buy a property.
+                        </p>
+                    </div>
+                    <!-- .footer-company-info -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Address</h3>
+                        <div class="clearfix">
+                            <ul>
+                                <li class="clearfix">
+                                    <i class="icon-map-marker pull-left"></i>
+                                    <p class="pull-left">
+                                        1680 Washington Avenue
+                                        <br />Miami Beach 33139 FL
+                                    </p>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="icon-phone pull-left"></i>
+                                    <p class="pull-left">+1 (800) 765 4321</p>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="icon-envelope-alt pull-left"></i>
+                                    <p class="pull-left"><a href="#">realto@realto.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- .clearfix -->
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Company</h3>
+                        <ul>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Home" href="~/">Home</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="About Us" href="#">About Us</a>
+                            </li>
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Properties" href="#">Properties</a>
+                            </li>                            
+                            <li>
+                                <i class="icon-caret-right"></i>
+                                <a title="Contact Us" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+                <div class="span3">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Flickr</h3>
+                        <div class="flickr-widget" id="flickrImages">                            
+                        </div>
+                        <!-- .flickr-widget -->
+                    </div>
+                    <!-- .footer-widget -->
+                </div>
+                <!-- .span3 -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- end footer -->
 </body>
 </html>

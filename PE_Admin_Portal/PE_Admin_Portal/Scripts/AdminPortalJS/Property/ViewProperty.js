@@ -166,6 +166,10 @@ $(document).ready(function () {
     });
 });
 
+function replaceAll(txt, replace, with_this) {
+    return txt.replace(new RegExp(replace, 'g'), with_this);
+}
+
 function propertyDetails(d) {
     var table = '<table width="100%" class="cell-border" cellpadding="5" cellspacing="0" border="2" style="padding-left:50px;">';
     table += '<tr>';
@@ -178,7 +182,7 @@ function propertyDetails(d) {
     table += '</tr>';
     table += '<tr>';
     table += '<td style="color:navy;width:20%;font-family:Calibri;font-weight:bold;">Description</td>';
-    table += '<td>' + d.Description + '</td>';
+    table += '<td>' + replaceAll(d.Description, "\n", "<br />") + '</td>';
     table += '</tr>';
     table += '<tr>';
     table += '<td style="color:navy;width:20%;font-family:Calibri;font-weight:bold;">Images</td>';

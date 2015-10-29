@@ -12,6 +12,8 @@ namespace PE_Admin_Portal
         public string Type { get; set; }
         public string NumberOfBedrooms { get; set; }
         public string Location { get; set; }
+        public string PriceFrom { get; set; }
+        public string PriceTo { get; set; }
         public Nullable<decimal> Price { get; set; }
         public string Description { get; set; }        
         public virtual ICollection<string> PropertyImages { get; set; }
