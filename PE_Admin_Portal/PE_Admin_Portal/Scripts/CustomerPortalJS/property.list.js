@@ -4,6 +4,7 @@ var records_per_page = settingsManager.recordsPerPage;
 
 $(document).ready(function () {
     $('#div_property_header_2').hide();
+    $('#pager').hide();
     $.ajax({
         url: settingsManager.websiteURL + 'api/PropertyAPI/RetrieveSixPropertyImages',
         type: 'GET',       
@@ -24,7 +25,8 @@ $(document).ready(function () {
         $('#property_header').html('Your Latest Property Search');
         propertyDetails = JSON.parse(window.localStorage.getItem("PropertyDetails"));
         updateTiles(1);
-    }    
+    }
+    $('#pager').show();
 });
 
 function updateFlickrImages(propertyImages) {
@@ -59,11 +61,11 @@ function updateTiles(page) {
     var html = '';
     for (var i = (page - 1) * records_per_page; i < (page * records_per_page) ; i++) { 
         if (i < propertyDetails.length) {
-            html += '<div class="span8 box-container">'
+            html += '<div class="span8 box-container" style="border-style: solid;border-width: medium;border-color: green;">'
             html += '<div class="holder row" style="display:flex;flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;">';
             html += '<a class="span4 overlay" title="property title" href="#">';
             html += '<span class="more"></span>';
-            html += '<img alt="image" src="' + propertyDetails[i].PropertyImages[0].Image + '" class="media-object" style="height:210px;width:370px;max-height:210px;max-width:370px;float:left;margin-left:15px">';
+            html += '<img alt="image" src="' + propertyDetails[i].PropertyImages[0].Image + '" class="media-object" style="height:210px;width:370px;max-height:210px;max-width:370px;float:left;margin-left:15px;border-style: solid;border-width: medium;border-color: black;box-shadow: 10px 10px 5px #888888;">';
             html += '</a>';
             html += '<div class="span4 prop-info" style="float:right;">';
             html += '<a style="text-decoration: underline;cursor:pointer;" onclick="displayProperty(' + i + ')"><h3 class="prop-title" style="font-family:Calibri;font-size:16px;font-weight:bold;color:green;text-align:center;">' + propertyDetails[i].Title + '</h3></a>';
@@ -72,6 +74,7 @@ function updateTiles(page) {
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;" ><span class="pull-left">Beds:</span> <span class="qty pull-right">' + propertyDetails[i].NumberOfBedrooms + '</span></li>';
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left">Type:</span> <span class="qty pull-right">' + propertyDetails[i].Type + '</span></li>';
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left">Price :</span> <span class="qty pull-right"> <img src="../img/naira.png" alt="Naira image"/>' + propertyDetails[i].ModifiedPrice + '</span></li>';
+            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image"/></span> <span class="qty pull-right"><img src="../img/instagramshare.png" style="max-width:40px;max-height:40px;height:auto;width:auto;" alt="Share on Instagram image"/></span></li>';
             html += '<br/></ul>';
             html += '</div>';
             html += '</div>';

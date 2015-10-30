@@ -80,3 +80,7 @@ function sendMessage() {
         }
     });
 }
+
+function backToPropertyList() {
+    window.location = "../Property/PropertyList";
+}

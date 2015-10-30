@@ -44,11 +44,11 @@ function updateTiles() {
     for (var i = 0; i < propertyDetails.length; i++) {
 
         var html = '';
-        html += '<li class="span4 box-container">';
+        html += '<li class="span4 box-container" style="box-shadow: 10px 10px 5px #888888;">';
         html += '<div class="holder">';
         html += '<a class="overlay" title="property title" href="#">';
         html += '<span class="more"></span>';
-        html += '<img alt="image" src="' + propertyDetails[i].PropertyImages[0].Image + '" class="media-object" style="height:210px;width:370px;max-height:210px;max-width:370px;">';
+        html += '<img alt="image" src="' + propertyDetails[i].PropertyImages[0].Image + '" class="media-object" style="height:210px;width:365px;border-style: solid;border-width: medium;border-color: black;">';
         html += '</a>';       
         html += '<div class="prop-info">';
 
