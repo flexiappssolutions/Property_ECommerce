@@ -308,6 +308,7 @@
     <Content Include="img\details_open.png" />
     <Content Include="img\edit_control.png" />
     <Content Include="img\edit_control_1.png" />
+    <Content Include="img\facebookshare.png" />
     <Content Include="img\favicon\favicon.png" />
     <Content Include="img\Folder.jpg" />
     <Content Include="img\gallery\com\phonegap\plugins\video\VideoPlayer.java" />
@@ -359,6 +360,7 @@
     <Content Include="img\icons\safari.png" />
     <Content Include="img\icons\windows.png" />
     <Content Include="img\ie-spacer.gif" />
+    <Content Include="img\instagramshare.png" />
     <Content Include="img\latest_properties.jpg" />
     <Content Include="img\left-arrow.png" />
     <Content Include="img\loader.gif" />
@@ -500,6 +502,7 @@
     <Content Include="Scripts\AdminPortalJS\_customValidations.js" />
     <Content Include="Scripts\CustomerPortalJS\bootstrap.min.js" />
     <Content Include="Scripts\CustomerPortalJS\custom.js" />
+    <Content Include="Scripts\CustomerPortalJS\facebookSDK.js" />
     <Content Include="Scripts\CustomerPortalJS\html5shiv.js" />
     <Content Include="Scripts\CustomerPortalJS\jquery.cycle2.carousel.min.js" />
     <Content Include="Scripts\CustomerPortalJS\jquery.cycle2.min.js" />

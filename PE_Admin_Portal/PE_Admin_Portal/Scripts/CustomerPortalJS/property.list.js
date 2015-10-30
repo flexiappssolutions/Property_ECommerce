@@ -2,7 +2,24 @@
 var current_page = 1;
 var records_per_page = settingsManager.recordsPerPage;
 
-$(document).ready(function () {
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '499523293543149',
+        xfbml: true,
+        version: 'v2.5'
+    });
+};
+
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+$(document).ready(function () {      
+    
     $('#div_property_header_2').hide();
     $('#pager').hide();
     $.ajax({
@@ -62,19 +79,32 @@ function updateTiles(page) {
     for (var i = (page - 1) * records_per_page; i < (page * records_per_page) ; i++) { 
         if (i < propertyDetails.length) {
             html += '<div class="span8 box-container" style="border-style: solid;border-width: medium;border-color: green;">'
+
             html += '<div class="holder row" style="display:flex;flex-direction: row;flex-wrap: wrap;justify-content: center;align-items: center;">';
-            html += '<a class="span4 overlay" title="property title" href="#">';
+
+            html += '<a class="span4 overlay" title="property title">';
+
             html += '<span class="more"></span>';
+
             html += '<img alt="image" src="' + propertyDetails[i].PropertyImages[0].Image + '" class="media-object" style="height:210px;width:370px;max-height:210px;max-width:370px;float:left;margin-left:15px;border-style: solid;border-width: medium;border-color: black;box-shadow: 10px 10px 5px #888888;">';
+
             html += '</a>';
+
             html += '<div class="span4 prop-info" style="float:right;">';
+
             html += '<a style="text-decoration: underline;cursor:pointer;" onclick="displayProperty(' + i + ')"><h3 class="prop-title" style="font-family:Calibri;font-size:16px;font-weight:bold;color:green;text-align:center;">' + propertyDetails[i].Title + '</h3></a>';
+
             html += '<ul class="more-info clearfix">';
+
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;" ><span class="pull-left">Location:</span> <span class="qty pull-right">' + propertyDetails[i].Location + '</span></li>';
+
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;" ><span class="pull-left">Beds:</span> <span class="qty pull-right">' + propertyDetails[i].NumberOfBedrooms + '</span></li>';
+
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left">Type:</span> <span class="qty pull-right">' + propertyDetails[i].Type + '</span></li>';
+
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left">Price :</span> <span class="qty pull-right"> <img src="../img/naira.png" alt="Naira image"/>' + propertyDetails[i].ModifiedPrice + '</span></li>';
-            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image"/></span> <span class="qty pull-right"><img src="../img/instagramshare.png" style="max-width:40px;max-height:40px;height:auto;width:auto;" alt="Share on Instagram image"/></span></li>';
+
+            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook(' + i + ')"/></span> <span class="qty pull-right"><img src="../img/instagramshare.png" style="max-width:40px;max-height:40px;height:auto;width:auto;" alt="Share on Instagram image"/></span></li>';
             html += '<br/></ul>';
             html += '</div>';
             html += '</div>';
@@ -117,6 +147,37 @@ function numPages() {
     return Math.ceil(propertyDetails.length / records_per_page);
 }
 
+function shareOnFacebook(propertyID) {
+    try{
+        var property = propertyDetails[propertyID];
+    
+        FB.ui({
+            method: 'share',
+            href: 'https://www.google.co.uk',
+            name: 'Home 4 You Properties',        
+            caption: property.Title,
+            description: property.Description,        
+            message: 'Property for sale on Home 4 You ' + settingsManager.websiteURL
+        },
+        function (response) {
+            if (response && !response.error_message) {
+                alert('Posting completed.');
+            } else {
+                alert('Posting not completed.');
+            }
+        });
+    }
+    catch (err) {
+        if (err.indexOf("FB is") > -1)
+            alert("Kindly refresh this page and try again.");
+        else
+            alert(err);
+    }
+}
+
+function replaceAll(txt, replace, with_this) {
+    return txt.replace(new RegExp(replace, 'g'), with_this);
+}
 
 function searchProperty() {
     var websiteURL = settingsManager.websiteURL;
@@ -182,7 +243,7 @@ function displayRecentProperties()
             updateTiles(1);
         },
         error: function (xhr) {
-            alert('error');
+            alert('error' + xhr.responseText);
         }
     });
 }

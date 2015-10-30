@@ -1,7 +1,23 @@
-﻿$(document).ready(function () {
+﻿window.fbAsyncInit = function () {
+    FB.init({
+        appId: '499523293543149',
+        xfbml: true,
+        version: 'v2.5'
+    });
+};
+
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+$(document).ready(function () {
     
     if (localStorage.getItem("TheProperty") === null) {
-        
+        window.location = "../";
     } else {        
         var theProperty = JSON.parse(window.localStorage.getItem("TheProperty"));
         var images = '';
@@ -18,6 +34,8 @@
         $('#property_description').html(replaceAll(theProperty.Description, "\n", "<br />"));
         $('#customer_message').val('I am interested in ' + theProperty.Title.toLowerCase());
         $('#property_id').val(theProperty.PropertyID);
+        $('#facebook_placeholder').html('<img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook()"/>');
+        $('#instagram_placeholder').html('<img src="../img/instagramshare.png" style="max-width:40px;max-height:40px;height:auto;width:auto;" alt="Share on Instagram image"/>');
     }
 
     $.ajax({
@@ -45,6 +63,34 @@ function updateFlickrImages(propertyImages) {
     });
     imagehtml += '</ul>';
     $('#flickrImages').html(imagehtml);
+}
+
+function shareOnFacebook() {
+    try {
+        var property = JSON.parse(window.localStorage.getItem("TheProperty"));
+
+        FB.ui({
+            method: 'share',
+            href: 'https://www.google.co.uk',
+            name: 'Home 4 You Properties',
+            caption: property.Title,
+            description: property.Description,
+            message: 'Property for sale on Home 4 You ' + settingsManager.websiteURL
+        },
+        function (response) {
+            if (response && !response.error_message) {
+                alert('Posting completed.');
+            } else {
+                alert('Posting not completed.');
+            }
+        });
+    }
+    catch (err) {
+        if (err.indexOf("FB is") > -1)
+            alert("Kindly refresh this page and try again.");
+        else
+            alert(err);
+    }
 }
 
 function sendMessage() {

@@ -129,10 +129,12 @@ function searchProperty() {
             cache: false,
             success: function (response) {
                 var propertyDetails = response.data;
-                if (localStorage.getItem("PropertyDetails") === null) {
-                    window.localStorage.removeItem("PropertyDetails");
-                }
-                window.localStorage.setItem("PropertyDetails", JSON.stringify(propertyDetails));
+                if (propertyDetails.length > 0) {
+                    if (localStorage.getItem("PropertyDetails") === null) {
+                        window.localStorage.removeItem("PropertyDetails");
+                    }
+                    window.localStorage.setItem("PropertyDetails", JSON.stringify(propertyDetails));
+                } 
                 window.location = "Property/PropertyList";
             },
             error: function (xhr) {
