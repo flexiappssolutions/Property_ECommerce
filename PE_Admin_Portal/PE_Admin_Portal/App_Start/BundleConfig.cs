@@ -97,6 +97,9 @@ namespace PE_Admin_Portal
             bundles.Add(new ScriptBundle("~/bundles/customer_portal_contactus").Include(
                   "~/Scripts/CustomerPortalJS/property.contactus.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/customer_portal_aboutus").Include(
+                 "~/Scripts/CustomerPortalJS/property.aboutus.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/customer_portal_enquiry").Include(
                   "~/Scripts/CustomerPortalJS/property.enquiry.js",
                    "~/Scripts/CustomerPortalJS/jquery.cycle2.min.js"));

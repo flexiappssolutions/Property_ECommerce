@@ -7,14 +7,14 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8" />
-    <title>Home 4 You | Property List</title>
+    <title>Home 4 You | About Us</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     @Styles.Render("~/Content/customer_portal_css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/customer_portal_libraries")
-    @Scripts.Render("~/bundles/customer_portal_property")
+    @Scripts.Render("~/bundles/customer_portal_aboutus")
 </head>
 <body>
     <!-- begin header -->
@@ -30,8 +30,8 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li><a href="~/"><i class="icon-home"></i></a></li>
-                            <li><a href="~/Property/AboutUs" title="Financing">About Us</a></li>
-                            <li class="active"><a href="~/Property/PropertyList" title="Financing">Properties</a></li>
+                            <li class="active"><a href="~/Property/AboutUs" title="Financing">About Us</a></li>
+                            <li><a href="~/Property/PropertyList" title="Financing">Properties</a></li>
                             <li><a href="~/Property/ContactUs" title="Contact us">Contact us</a></li>
                         </ul>
                     </div>
@@ -59,34 +59,82 @@
         <div class="row">
             <div class="span8">
                 <div class="row">
-                    <!-- .span8 .box-container -->                    
-                    <div class="span8 box-container" style="border-top-width:thin;border-color:green">
-                        <h3 id="property_header" style="text-align:center;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight:bold;color:green;"></h3>
-                    </div>
-                    <div class="span8 box-container" style="border-top-width:thin;border-color:green" id="div_property_header_2">
-                        <h4 id="property_header_2" style="text-align:center;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight:bold;color:green;">Other Recently Added Properties Are Shown Below </h4>
-                    </div>
-                    <div id="properties">
-
-                    </div>
-                    <ul class="pager" id="pager">
-                        <li><a href="javascript:prevPage()" id="btn_prev">Previous</a></li>
-                        <li><a href="javascript:nextPage()" id="btn_next">Next</a></li>                       
-                    </ul>                  
+                    <div class="span8 box-container">
+                        <div class="agent row">
+                            <img alt="image" class="media-object span3" src="http://placehold.it/270x270">
+                            <div class="span5">
+                                <div class="agent-content">
+                                    <h3>John Doe</h3>
+                                    <ul class="unstyled">
+                                        <li>
+                                            <i class="icon-envelope-alt"></i>
+                                            Email: john.doe@realto.com
+                                        </li>
+                                        <li>
+                                            <i class="icon-phone"></i>
+                                            Phone: +1 786 345 6789
+                                        </li>
+                                        <li>
+                                            <i class="icon-linkedin"></i>
+                                            linkedin.com/john.doe
+                                        </li>
+                                        <li>
+                                            <i class="icon-twitter"></i>
+                                            john.doe
+                                        </li>
+                                    </ul>
+                                    <p class="margin0"><strong>About me</strong></p>
+                                    <p class="margin0">
+                                        Pellentesque habitant morbi tristique senectus et
+                                        netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
+                                        feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>       
                     
-                    <div style="display:none">
-                        page:
-                        <span id="page"></span>
-                    </div>
-
-                    <!-- .span8 .box-container -->
+                    <div class="span8 box-container">
+                        <div class="agent row">
+                            <img alt="image" class="media-object span3" src="http://placehold.it/270x270">
+                            <div class="span5">
+                                <div class="agent-content">
+                                    <h3>John Doe</h3>
+                                    <ul class="unstyled">
+                                        <li>
+                                            <i class="icon-envelope-alt"></i>
+                                            Email: john.doe@realto.com
+                                        </li>
+                                        <li>
+                                            <i class="icon-phone"></i>
+                                            Phone: +1 786 345 6789
+                                        </li>
+                                        <li>
+                                            <i class="icon-linkedin"></i>
+                                            linkedin.com/john.doe
+                                        </li>
+                                        <li>
+                                            <i class="icon-twitter"></i>
+                                            john.doe
+                                        </li>
+                                    </ul>
+                                    <p class="margin0"><strong>About me</strong></p>
+                                    <p class="margin0">
+                                        Pellentesque habitant morbi tristique senectus et
+                                        netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
+                                        feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
                 </div>
                 <!-- .row -->
             </div>
             <!-- .span8 -->
-            <div class="span4">
+            <div class="span4" >
                 <div class="search-form widget" style="border-style: solid;border-width: medium;border-color: green;">
-                    <p>Find your new home</p>
+                    <p>Find your new property</p>
                     <div class="row-fluid">
                         <select class="span12 select" name="type" id="property_location">
                             <option value="">Location</option>
@@ -173,13 +221,13 @@
                             <button id="searchBtn" class="btn pull-right span6 btn-realto-form btn-large" onclick="searchProperty()" type="submit">Search</button>
                         </div>
                     </div>
-                </div>
-                <!-- .search-form -->               
+                </div>                                                  
             </div>
             <!-- .span4 -->
         </div>
         <!-- .row -->
-    </div>    
+    </div>
+    <!-- .container -->
     <!-- begin footer -->
     <footer>
         <div class="container">

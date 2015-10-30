@@ -34,8 +34,7 @@ $(document).ready(function () {
         $('#property_description').html(replaceAll(theProperty.Description, "\n", "<br />"));
         $('#customer_message').val('I am interested in ' + theProperty.Title.toLowerCase());
         $('#property_id').val(theProperty.PropertyID);
-        $('#facebook_placeholder').html('<img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook()"/>');
-        $('#instagram_placeholder').html('<img src="../img/instagramshare.png" style="max-width:40px;max-height:40px;height:auto;width:auto;" alt="Share on Instagram image"/>');
+        $('#facebook_placeholder').html('<img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook()"/>');       
     }
 
     $.ajax({

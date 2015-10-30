@@ -36,7 +36,8 @@ $(document).ready(function () {
     });
 
     if (localStorage.getItem("PropertyDetails") === null) {
-        $('#property_header').html('Recently Added Properties');
+        $('#property_header').html('No Results found for your search.');
+        $('#div_property_header_2').show();        
         displayRecentProperties();
     } else {
         $('#property_header').html('Your Latest Property Search');
@@ -104,7 +105,7 @@ function updateTiles(page) {
 
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left">Price :</span> <span class="qty pull-right"> <img src="../img/naira.png" alt="Naira image"/>' + propertyDetails[i].ModifiedPrice + '</span></li>';
 
-            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook(' + i + ')"/></span> <span class="qty pull-right"><img src="../img/instagramshare.png" style="max-width:40px;max-height:40px;height:auto;width:auto;" alt="Share on Instagram image"/></span></li>';
+            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook(' + i + ')"/></span> </li>';
             html += '<br/></ul>';
             html += '</div>';
             html += '</div>';

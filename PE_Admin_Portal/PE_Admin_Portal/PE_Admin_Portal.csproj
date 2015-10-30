@@ -564,6 +564,8 @@
     <Content Include="Views\Property\PropertyPage.cshtml" />
     <Content Include="Views\Property\ContactUs.cshtml" />
     <Content Include="Views\Property\PropertyEnquiry.cshtml" />
+    <Content Include="Views\Property\AboutUs.cshtml" />
+    <Content Include="Scripts\CustomerPortalJS\property.aboutus.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PE_Admin_Library\PE_Admin_Library.csproj">

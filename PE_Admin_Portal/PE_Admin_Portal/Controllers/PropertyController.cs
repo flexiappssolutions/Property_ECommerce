@@ -16,6 +16,13 @@ namespace PE_Admin_Portal.Controllers
             return View();
         }
 
+        public ActionResult AboutUs()
+        {
+            ViewBag.Title = "About Us";
+
+            return View();
+        }
+
         public ActionResult UploadProperty()
         {
             ViewBag.Title = "Upload Property";
