@@ -26,8 +26,7 @@ function resetPassword() {
     var err = customValidation(new_password, confirm_password);
     if (err != "") {
         alert(err);
-    } else {
-        alert(username);
+    } else {        
         var data = { Username: username, NewPassword: new_password };
         $.ajax({
             url: settingsManager.websiteURL + 'api/UserAPI/ChangePassword',
@@ -37,12 +36,11 @@ function resetPassword() {
             async: true,
             cache: false,
             success: function (data) {
-                window.location = "../";
+                window.location = "../AdminLogin/SignIn";
                 alert("Password was changed successfully. You will be redirected shorthly to login with your new password.");
             },
             error: function (xhr) {
-                alert(xhr.responseText);
-                console.log(xhr);
+                alert(xhr.responseText);                
             }
         });
     }

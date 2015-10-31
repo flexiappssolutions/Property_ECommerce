@@ -444,6 +444,7 @@
     <Content Include="img\thumbnails\room_6.jpg" />
     <Content Include="img\thumbnails\room_7.jpg" />
     <Content Include="img\thumbnails\room_8.jpg" />
+    <Content Include="img\twitter.jpg" />
     <Content Include="img\user-big.jpg" />
     <Content Include="img\user.jpg" />
     <Content Include="img\white-opacity-40.png" />

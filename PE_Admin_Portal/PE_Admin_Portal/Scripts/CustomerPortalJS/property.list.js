@@ -105,7 +105,8 @@ function updateTiles(page) {
 
             html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left">Price :</span> <span class="qty pull-right"> <img src="../img/naira.png" alt="Naira image"/>' + propertyDetails[i].ModifiedPrice + '</span></li>';
 
-            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook(' + i + ')"/></span> </li>';
+            html += '<li class="info-label clearfix" style="margin-left:20px;margin-right:20px;"><span class="pull-left"><img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook(' + i + ')"/></span> <span class="qty pull-right"> <img src="../img/twitter.jpg" style="max-width:25px;max-height:25px;height:auto;width:auto;" alt="Share on Twitter image" onclick="shareOnTwitter(' + i + ')"/></li>';
+
             html += '<br/></ul>';
             html += '</div>';
             html += '</div>';
@@ -146,6 +147,17 @@ function nextPage() {
 
 function numPages() {    
     return Math.ceil(propertyDetails.length / records_per_page);
+}
+
+function shareOnTwitter(propertyID) {
+    try {
+        var property = propertyDetails[propertyID];
+        var twtLink = 'http://twitter.com/home?status=' + encodeURIComponent(property.Title.toLowerCase() + ' available for sale on ' + settingsManager.websiteURL);
+        window.open(twtLink, '_blank');
+    }
+    catch (err) {
+        alert(err);
+    }
 }
 
 function shareOnFacebook(propertyID) {

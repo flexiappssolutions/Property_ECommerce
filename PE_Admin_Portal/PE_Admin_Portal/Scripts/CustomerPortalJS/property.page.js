@@ -34,7 +34,8 @@ $(document).ready(function () {
         $('#property_description').html(replaceAll(theProperty.Description, "\n", "<br />"));
         $('#customer_message').val('I am interested in ' + theProperty.Title.toLowerCase());
         $('#property_id').val(theProperty.PropertyID);
-        $('#facebook_placeholder').html('<img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook()"/>');       
+        $('#facebook_placeholder').html('<img src="../img/facebookshare.png" style="max-width:120px;max-height:100px;height:auto;width:auto;" alt="Share on facebook image" onclick="shareOnFacebook()"/>');
+        $('#twitter_placeholder').html('<img src="../img/twitter.jpg" style="max-width:25px;max-height:25px;height:auto;width:auto;" alt="Share on Twitter image" onclick="shareOnTwitter()"/>');
     }
 
     $.ajax({
@@ -62,6 +63,17 @@ function updateFlickrImages(propertyImages) {
     });
     imagehtml += '</ul>';
     $('#flickrImages').html(imagehtml);
+}
+
+function shareOnTwitter() {
+    try {
+        var property = JSON.parse(window.localStorage.getItem("TheProperty"));
+        var twtLink = 'http://twitter.com/home?status=' + encodeURIComponent(property.Title.toLowerCase() + ' available for sale on ' + settingsManager.websiteURL);
+        window.open(twtLink, '_blank');
+    }
+    catch (err) {
+        alert(err);
+    }
 }
 
 function shareOnFacebook() {
